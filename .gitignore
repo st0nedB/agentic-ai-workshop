@@ -1,0 +1,16 @@
+# Teilnehmer-Dateien nicht einchecken
+/workspace/
+
+# Zugangsdaten / lokale Umgebungen
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+
+# Python und temporäre Dateien
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.DS_Store
