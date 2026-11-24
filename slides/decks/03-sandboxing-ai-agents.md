@@ -23,12 +23,13 @@ footer: TU Ilmenau · AI Agent Workshop
 
 <!-- _class: compact -->
 
-# An agent runs with real permissions
+# What should an agent access — and what can it access?
+
+**Task:** Analyze a project folder. Should unrelated private documents be accessible?
 
 ![width:1010px](../assets/b3-host-access.svg)
 
-- An agent's shell tools run as an **operating-system process**.
-- That process can access whatever its **user identity and environment** permit.
+An agent's tools run as processes with real operating-system permissions. They may reach unrelated files if those permissions allow it.
 
 **A written instruction to avoid secrets does not revoke filesystem access.**
 
@@ -43,17 +44,27 @@ footer: TU Ilmenau · AI Agent Workshop
 - **VM:** A virtualized machine with its own guest operating system and kernel.
 - **Container:** An isolated process environment sharing the host's kernel.
 
-**Containers are often lighter and faster to start, but isolation differs.**
+**Conceptually, containers are a lightweight alternative to VMs for isolating applications. Their security boundaries differ.**
 
 ---
 
 <!-- _class: compact -->
 
-# What defines the boundary?
+# Mounts: choose which host files are available
+
+![width:1040px](../assets/b3-mounts.svg)
+
+A **mount** makes a host directory available at a path inside the container. Changes to a writable mount affect the host files too.
+
+---
+
+<!-- _class: compact -->
+
+# What else defines the boundary?
 
 ![width:1040px](../assets/b3-isolation-controls.svg)
 
-The host kernel enforces isolation through mechanisms including **namespaces** and **cgroups**.
+The host kernel can restrict process visibility (namespaces), resource consumption (cgroups), privileges and network access.
 
 **A container is only as restricted as its configuration.**
 
@@ -65,9 +76,9 @@ The host kernel enforces isolation through mechanisms including **namespaces** a
 
 ![width:990px](../assets/b3-sandbox-boundaries.svg)
 
-- Make required files available through explicit **mounts**.
-- Keep unrelated secrets outside the sandbox and restrict privileged interfaces.
-- Use **read-only** mounts where the agent must inspect but not modify.
+- Expose only the necessary files, with the minimum required access.
+- Keep unrelated secrets and privileged interfaces outside the sandbox.
+- Restrict network access and resource consumption where appropriate.
 
 ---
 
@@ -83,13 +94,26 @@ The host kernel enforces isolation through mechanisms including **namespaces** a
 
 ---
 
+# Before the experiment: predict access
+
+| Operation | Direct agent | Restricted container |
+|:--|:--:|:--:|
+| Read and repair `working/` | ? | ? |
+| Read `private_repo/id_ed25519` | ? | ? |
+| Read `.git` history | ? | ? |
+| Modify original `.git` | ? | ? |
+
+Record your predictions before running the verification script. Will the written instructions change any of these permissions?
+
+---
+
 <!-- _class: exercise -->
 
 # Exercise 4 · Compare two environments
 
 ![width:1000px](../assets/b3-exercise-environments.svg)
 
-**15:35–16:15 · Group work**
+**15:40–16:20 · Group work**
 
 Run `bash 03_sandboxing/run.sh prepare`, then the same script with:
 
@@ -110,21 +134,23 @@ Run `bash 03_sandboxing/run.sh prepare`, then the same script with:
 | Read `.git` history | Allowed | Allowed |
 | Modify original `.git` | Possible | Read-only |
 
-**16:15–16:30 · Compare the actual behavior and access checks.**
+**16:20–16:35 · Compare three things:**
 
-*An agent may never open the key. The deterministic test checks whether it could.*
+- What did the agent actually do?
+- What could it have done, according to the access checks?
+- What did the environment prevent it from doing?
 
 ---
 
 <!-- _class: compact -->
 
-# Beyond accidental file access
+# Three complementary protection layers
 
 ![width:1010px](../assets/b3-risk-controls.svg)
 
-**Prompt injection:** Untrusted data can contain instructions aimed at the agent.
+If an agent ignores instructions or follows harmful instructions embedded in a file, approvals and enforced boundaries can still limit its actions.
 
-**Isolation limits damage even when an agent follows a harmful instruction.**
+**No single layer guarantees security.**
 
 ---
 
