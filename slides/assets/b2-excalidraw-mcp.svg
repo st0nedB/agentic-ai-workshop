@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 280" width="1100" height="280">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#00747A"/></marker></defs>
+<style>text{font-family:Arial,'Liberation Sans',sans-serif}.h{font-size:27px;font-weight:700;fill:#003359}.s{font-size:20px;fill:#17324D}.m{font-size:17px;fill:#607487}.arrow{fill:none;stroke:#00747A;stroke-width:3;marker-end:url(#arrow)}</style>
+<rect x="10" y="33" width="255" height="175" rx="15" fill="#F4F8FA" stroke="#003359" stroke-width="2.5"/>
+<text x="138" y="79" text-anchor="middle" class="h">Analysis files</text><text x="138" y="111" text-anchor="middle" class="s">Loading code</text><text x="138" y="142" text-anchor="middle" class="s">Processing steps</text><text x="138" y="173" text-anchor="middle" class="s">Generated plots</text>
+<rect x="338" y="33" width="250" height="175" rx="15" fill="#E7F3F1" stroke="#00747A" stroke-width="2.5"/>
+<text x="463" y="80" text-anchor="middle" class="h">Agent</text><text x="463" y="114" text-anchor="middle" class="s">Inspects actual</text><text x="463" y="144" text-anchor="middle" class="s">analysis steps</text><text x="463" y="176" text-anchor="middle" class="m">Creates drawing request</text>
+<rect x="659" y="33" width="220" height="175" rx="15" fill="#F4F8FA" stroke="#00747A" stroke-width="2.5"/>
+<text x="769" y="79" text-anchor="middle" class="h">MCP server</text><text x="769" y="113" text-anchor="middle" class="s">Drawing tools</text><text x="769" y="145" text-anchor="middle" class="s">Element creation</text><text x="769" y="177" text-anchor="middle" class="m">Tool schemas</text>
+<rect x="946" y="33" width="144" height="175" rx="15" fill="#FFF0E4" stroke="#FF7900" stroke-width="2.5"/>
+<text x="1018" y="85" text-anchor="middle" class="h" style="font-size:25px">Excalidraw</text><text x="1018" y="125" text-anchor="middle" class="s">Editable</text><text x="1018" y="155" text-anchor="middle" class="s">diagram</text>
+<path class="arrow" d="M268 119H329"/><path class="arrow" d="M592 119H650"/><path class="arrow" d="M882 119H937"/>
+<text x="550" y="251" text-anchor="middle" class="m">The diagram is checked against the analysis code and saved outputs.</text>
+</svg>

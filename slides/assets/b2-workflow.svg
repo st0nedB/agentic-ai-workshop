@@ -7,7 +7,7 @@
 <rect x="581" y="40" width="234" height="115" rx="14" fill="#F4F8FA" stroke="#00747A" stroke-width="2.5"/>
 <rect x="860" y="40" width="218" height="115" rx="14" fill="#FEF0E3" stroke="#FF7900" stroke-width="2.5"/>
 <text x="140" y="85" text-anchor="middle" class="h">Plan</text><text x="140" y="119" text-anchor="middle" class="m">Steps + assumptions</text>
-<text x="419" y="85" text-anchor="middle" class="h">Execute</text><text x="419" y="119" class="m">Small, traceable steps</text>
+<text x="419" y="85" text-anchor="middle" class="h">Execute</text><text x="419" y="119" text-anchor="middle" class="m">Small, traceable steps</text>
 <text x="698" y="85" text-anchor="middle" class="h">Verify</text><text x="698" y="119" text-anchor="middle" class="m">Tests + evidence</text>
 <text x="969" y="85" text-anchor="middle" class="h">Approve</text><text x="969" y="119" text-anchor="middle" class="m">Human checkpoint</text>
 <path d="M259 96 H298" class="arrow"/><path d="M538 96 H577" class="arrow"/><path d="M817 96 H855" class="arrow"/>

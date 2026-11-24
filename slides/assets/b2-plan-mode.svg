@@ -18,9 +18,7 @@
 <text class="h" x="970" y="72" text-anchor="middle">Build mode</text>
 <text class="t" x="970" y="106" text-anchor="middle">Execute steps</text>
 <text class="m" x="970" y="139" text-anchor="middle">Authorized tools</text>
-<path class="arrow" d="M242 102 H279"/>
-<path class="arrow" d="M531 102 H568"/>
-<path class="arrow" d="M813 102 H849"/>
+<path class="arrow" d="M242 102 H279"/><path class="arrow" d="M531 102 H568"/><path class="arrow" d="M813 102 H849"/>
 <text class="t" x="552" y="217" text-anchor="middle">OpenCode provides separate Plan and Build agents.</text>
 <text class="m" x="552" y="245" text-anchor="middle">Planning permissions depend on the harness configuration.</text>
 
