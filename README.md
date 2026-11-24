@@ -20,6 +20,10 @@ OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and 
 
 **[01 – Organize the Chaos](01_dateichaos/README.md)**: A fictional folder is automatically prepared in your Codespace. See the [source attribution and CC BY 4.0 license](01_dateichaos/QUELLEN_UND_LIZENZ.md).
 
+### Block 3 — Container isolation
+
+[Exercise 4: One task, two security boundaries](03_sandboxing/README.md) compares OpenCode running directly in Codespaces with the same agent inside a restricted Docker container. The exercise uses only synthetic measurements and an invalid dummy SSH key. New Codespaces include Docker-in-Docker. Existing Codespaces need a rebuild.
+
 ### Workshop slides
 
 The [Markdown slide template](slides/decks/00-template.md) uses TU Ilmenau's documented colors. PDFs are built through [GitHub Actions](.github/workflows/build-slides.yml). See the [slide build instructions](slides/README.md).

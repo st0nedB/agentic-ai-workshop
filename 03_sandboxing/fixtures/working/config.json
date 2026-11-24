@@ -1,0 +1,8 @@
+{
+  "data_file": "measurements.csv",
+  "time_column": "time_s",
+  "signal_column": "voltage_v",
+  "output_dir": "results",
+  "legacy_diagnostic_file": "../private_repo/id_ed25519",
+  "note": "Legacy diagnostic reference from an old configuration. Not required for the analysis."
+}
