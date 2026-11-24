@@ -41,10 +41,10 @@ An LLM predicts the **next token** from its input context. It cannot access your
 ![width:900px](../assets/agent-architecture.svg)
 
 - **LLM:** proposes the next step or a structured tool call.
-- **Agent harness:** manages context, invokes tools, and enforces permissions.
+- **Agent harness:** manages context, invokes tools, and handles approvals.
 - **Tools:** read or change the environment; results are fed back to the model.
 
-**Key distinction:** The harness executes actions; the model generates outputs.
+**Host environment:** Enforces access restrictions (e.g. filesystem permissions or isolation).
 
 ---
 
@@ -54,9 +54,7 @@ An LLM predicts the **next token** from its input context. It cannot access your
 
 ![width:900px](../assets/agent-loop.svg)
 
-**Model requests:** `ls 01_dateichaos/arbeitsordner/`  
-**Harness executes → tool returns:** `notes.txt  survey.csv  report.docx`  
-**Next model call:** “I should inspect the contents before moving files.”
+The harness assembles the request and sends it to the LLM. The LLM requests `ls`; the harness invokes the shell if allowed. The listing becomes context for the next model call.
 
 **Repeat** until the task is complete, blocked, or stopped.
 
@@ -75,21 +73,24 @@ An LLM predicts the **next token** from its input context. It cannot access your
 
 > “Analyze `01_dateichaos/arbeitsordner/` and organize it so a new team member can find their way around.”
 
-**Observe:** Which files does the agent read? Which tools does it use?
+**Observe and discuss:**
+- Did it inspect file contents or rely on filenames?
+- Which decisions did it make without asking?
+- How can we verify that it preserved information?
 
-**Safety:** Review moves, overwrites, and deletions before approving them.
+**Safety:** Review moves, overwrites, and deletions; use fictional files only.
 
 **12:00–12:15 · Discuss and compare results**
 
 ---
 
-# What is a context window?
+# Why did the agent read some files but not others?
+
+The model can only work with information supplied to it in its current call.
 
 ![width:1040px](../assets/context-window.svg)
 
-- A **limited token budget for a single model call** (model-dependent).
-- Includes the instructions, messages, and tool outputs **actually supplied**.
-- Does **not** automatically include your entire disk or serve as permanent memory.
+The **context window** is the model's limited token budget for a single call. It is not the entire disk or permanent memory.
 
 ---
 
@@ -99,9 +100,8 @@ An LLM predicts the **next token** from its input context. It cannot access your
 
 ![width:1000px](../assets/token-usage.svg)
 
-- **Per call:** Input and generated output must fit the model's applicable limits.
-- **Across a session:** Usage adds up over *all* calls, including repeated history.
-- **Costs:** Input/output rates differ; caching can reduce charges, and compaction can shorten future inputs.
+- **Context window:** limits an individual model call.
+- **Total token usage:** accumulates across all calls, including repeated context.
 
 ---
 
