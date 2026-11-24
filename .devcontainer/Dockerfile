@@ -1,4 +1,4 @@
-# Python-based Codespaces image with four CLI agents.
+# Python-based Codespaces image with five CLI agents.
 # This image does not store API keys or preconfigure model providers.
 FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 
@@ -26,11 +26,13 @@ RUN set -eux; \
     npm install --global --no-audit --no-fund \
       @openai/codex \
       @anthropic-ai/claude-code \
-      @mariozechner/pi-coding-agent; \
+      @mariozechner/pi-coding-agent \
+      @opencode/cli; \
     curl -fsSL \
       https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh \
       | CONFIGURE=false GOOSE_BIN_DIR="/home/vscode/.local/bin" bash; \
     codex --version; \
     claude --version; \
     goose --version; \
-    pi --version
+    pi --version; \
+    opencode --version
