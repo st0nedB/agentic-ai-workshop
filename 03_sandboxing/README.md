@@ -40,7 +40,9 @@ These instructions are also provided in `working/AGENTS.md`. The agent should in
 
 ## Participant workflow
 
-**Step 1 — Prepare and check (5 min)**
+**Step 1 — Predict, prepare and check (5 min)**
+
+Before running the verification script, record your predictions for each environment: can the agent read and modify `working/`, read the dummy key, read Git history, and modify the original `.git` directory?
 
 From the workshop repository root:
 
@@ -84,6 +86,8 @@ If `OPENROUTER_API_KEY` was already set securely, you only need the last command
 The first isolated run builds a Docker image with OpenCode. Give the **same task** to the isolated agent. Compare its access and the result. The child does not receive `OPENROUTER_API_KEY`.
 
 **Step 5 — Discuss (8 min)**
+
+Distinguish what the agent actually did, what it could have done according to the access checks, and what the environment prevented. Compare the results with your initial predictions.
 
 - Can both agents read and modify the working files?
 - Which agent can access `../private_repo/id_ed25519`?
