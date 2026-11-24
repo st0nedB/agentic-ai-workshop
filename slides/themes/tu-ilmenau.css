@@ -1,0 +1,168 @@
+/* @theme tu-ilmenau */
+@import 'default';
+
+/*
+ * TU-Ilmenau-inspired slide theme using the university's documented
+ * corporate colors (see slides/README.md).
+ *
+ * Green:  #00747A
+ * Blue:   #003359
+ * Orange: #FF7900
+ *
+ * No university logo or proprietary university fonts are embedded.
+ */
+
+:root {
+  --tu-green: #00747A;
+  --tu-blue: #003359;
+  --tu-orange: #FF7900;
+  --tu-text: #17324D;
+  --tu-muted: #607487;
+  --tu-light: #F4F8FA;
+}
+
+section {
+  box-sizing: border-box;
+  background: #fff;
+  border-top: 12px solid var(--tu-green);
+  color: var(--tu-text);
+  font-family: Arial, "Liberation Sans", sans-serif;
+  font-size: 29px;
+  line-height: 1.28;
+  padding: 68px 75px 70px;
+}
+
+section h1 {
+  color: var(--tu-blue);
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 26px;
+}
+
+section h2 {
+  color: var(--tu-green);
+  font-size: 35px;
+  margin-bottom: 14px;
+}
+
+section h3 {
+  color: var(--tu-blue);
+  font-size: 30px;
+}
+
+section p,
+section li {
+  line-height: 1.35;
+}
+
+section li {
+  margin-bottom: 9px;
+}
+
+section strong,
+section em strong {
+  color: var(--tu-blue);
+}
+
+section a {
+  color: var(--tu-green);
+}
+
+section blockquote {
+  background: var(--tu-light);
+  border-left: 8px solid var(--tu-orange);
+  margin: 22px 0;
+  padding: 14px 25px;
+}
+
+section blockquote p {
+  margin: 0;
+}
+
+section code {
+  background: var(--tu-light);
+  color: var(--tu-blue);
+  font-size: 0.88em;
+}
+
+section table {
+  font-size: 0.78em;
+  width: 100%;
+}
+
+section th {
+  background: var(--tu-blue);
+  color: #fff;
+}
+
+section td {
+  background: #fff;
+}
+
+section header {
+  color: var(--tu-muted);
+  font-size: 14px;
+  left: 75px;
+  right: 75px;
+  top: 27px;
+}
+
+section footer {
+  bottom: 22px;
+  color: var(--tu-muted);
+  font-size: 14px;
+  left: 75px;
+  right: 75px;
+}
+
+section::after {
+  bottom: 22px;
+  color: var(--tu-muted);
+  font-size: 14px;
+  right: 73px;
+}
+
+section.lead {
+  background: var(--tu-blue);
+  border-top: 12px solid var(--tu-green);
+  color: #fff;
+}
+
+section.lead h1 {
+  color: #fff;
+  font-size: 64px;
+  line-height: 1.14;
+  max-width: 1050px;
+}
+
+section.lead h2 {
+  color: #c4ece9;
+  font-size: 33px;
+  font-weight: 400;
+}
+
+section.lead strong,
+section.lead a,
+section.lead header,
+section.lead footer,
+section.lead::after {
+  color: #e4f4f2;
+}
+
+section.section {
+  background: var(--tu-green);
+  border-top: 12px solid var(--tu-blue);
+  color: #fff;
+}
+
+section.section h1,
+section.section h2,
+section.section strong,
+section.section header,
+section.section footer,
+section.section::after {
+  color: #fff;
+}
+
+/* Optional callout: use Markdown blockquote for orange emphasis. */
