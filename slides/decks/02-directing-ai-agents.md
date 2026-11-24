@@ -23,6 +23,20 @@ footer: TU Ilmenau · AI Agent Workshop
 
 <!-- _class: compact -->
 
+# Why context matters
+
+In Exercise 1, the agent had to decide which files to inspect.
+
+**Minimal prompt:** Analyze this measurement dataset.
+
+**With relevant context:** Analyze the supplied measurement file using the documented recording parameters, data structure, and physical units.
+
+Without that context, the agent must discover the information, ask for it, or make assumptions.
+
+---
+
+<!-- _class: compact -->
+
 # Build the context deliberately
 
 ![width:990px](../assets/b2-context-selection.svg)
@@ -93,11 +107,60 @@ The agent uses its usual coding tools to carry out the procedure.
 
 ---
 
+<!-- _class: compact -->
+
+# What does a skill look like?
+
+```text
+visualization/
+├── SKILL.md
+└── references/   (optional)
+```
+
+Example excerpt from `SKILL.md`:
+
+```markdown
+- Inspect the data structure and identify units.
+- Choose plots appropriate to the measured quantity.
+- Label axes and save the code used to generate plots.
+```
+
+A compatible harness discovers and loads the instructions when needed. Skills can also contain scripts and reference material.
+
+---
+
+# Three complementary ways to direct an agent
+
+| Mechanism | Purpose | Scope |
+|:--|:--|:--|
+| Agent Contract | What must be achieved? | Individual task |
+| Project instructions | Which rules generally apply? | Project |
+| Skill | How should a recurring task be performed? | Reusable procedure |
+
+All three supply context; they do not create new model capabilities.
+
+---
+
+<!-- _class: compact -->
+
+# The measurement file
+
+**Input:** One organizer-provided `.h5` file in `02_data_analysis/data/`.
+
+- ISAC measurements from a UAV measurement campaign.
+- HDF5 stores arrays and metadata in a hierarchical structure.
+- Inspect dataset names, shapes, attributes and available documentation before interpreting values.
+- Choose plots appropriate to the measured quantities and their documented units.
+
+**Do not invent missing metadata or assume the array dimensions.**
+
+---
+
 <!-- _class: exercise -->
 
 # Exercise 2 · Analyze measurement data
 
-**13:15–13:50 · Group work**
+**13:25–13:55 · Group work**
 
 1. Inspect the dataset and define an **Agent Contract**.
 2. Use **Plan Mode** to propose a processing and visualization workflow.
@@ -106,31 +169,19 @@ The agent uses its usual coding tools to carry out the procedure.
 
 **Verify:** Do the plots match the data and units? Are the processing steps reproducible?
 
-**13:50–14:05 · Share observations and results**
-
----
-
-# Tools, Skills, and MCP
-
-| Mechanism | What it provides | Example |
-|:--|:--|:--|
-| Shell tools | Command execution | `python analyze.py` |
-| Agent Skills | Reusable methods and instructions | Data Visualization Skill |
-| MCP servers | Discoverable, structured tool interfaces | Excalidraw drawing operations |
-
-An agent can combine all three in the same workflow.
+**13:55–14:05 · Share observations and results**
 
 ---
 
 <!-- _class: compact -->
 
-# Why use MCP for external applications?
+# How can an agent access external applications?
 
 **Example question:** “Do I have any unread emails?”
 
 ![width:1000px](../assets/b2-email-two-paths.svg)
 
-A purpose-built CLI can provide the same abstraction. MCP standardizes how compatible agents discover and invoke tools.
+A purpose-built CLI or API can expose application capabilities. **Model Context Protocol (MCP)** standardizes how compatible clients discover and invoke tools. Access must still be configured.
 
 ---
 
@@ -148,13 +199,25 @@ A purpose-built CLI can provide the same abstraction. MCP standardizes how compa
 
 ---
 
+# Tools, Skills, and MCP
+
+| Mechanism | What it provides | Example |
+|:--|:--|:--|
+| Shell tools | Command execution | `python analyze.py` |
+| Agent Skills | Reusable methods and instructions | Data Visualization Skill |
+| MCP servers | Discoverable, structured tool interfaces | Excalidraw drawing operations |
+
+MCP tools are still tools; a skill supplies reusable guidance. An agent can combine all three.
+
+---
+
 <!-- _class: exercise -->
 
 # Exercise 3 · Draw the actual workflow
 
 **14:20–14:55 · Group work**
 
-1. Connect the provided **Excalidraw MCP** integration.
+1. Connect the workshop's **Excalidraw MCP** integration.
 2. Ask the agent to inspect the analysis it performed in Exercise 2.
 3. Draw the workflow from **file loading** through **processing** to **visualization**.
 4. Compare the diagram with the code and correct missing or invented steps.
@@ -185,4 +248,4 @@ A purpose-built CLI can provide the same abstraction. MCP standardizes how compa
 
 ## Next: Containers, sandboxing, and enforced boundaries.
 
-In Block 3, the same task runs with different permissions.
+In Block 3, the same task runs with different enforced access restrictions.
