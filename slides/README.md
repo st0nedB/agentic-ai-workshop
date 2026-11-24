@@ -18,7 +18,7 @@ Die Vorlage [00-vorlage.md](decks/00-vorlage.md) kopieren, beispielsweise nach `
 **PDF lokal:** Mit installiertem Docker/Podman-Docker-CLI vom Repository-Stamm aus:
 
 ```bash
-./scripts/build-slides.sh
+bash scripts/build-slides.sh
 ```
 
 Ergebnis: `slides/dist/*.pdf`. Der Export verwendet den offiziellen, Chromium-haltigen Marp-Container. Damit muss lokal weder Marp noch Chromium installiert werden. In GitHub Codespaces ist nur die **Markdown-Vorschau** vorgesehen; der PDF-Build erfolgt über GitHub Actions.
