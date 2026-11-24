@@ -10,6 +10,10 @@ Deine Arbeitsumgebung für den Workshop – direkt im Browser, ohne Installation
 2. **Create codespace** wählen (am besten mit **2 Cores**).
 3. Warten, bis sich **VS Code** öffnet. Fertig!
 
+### 🤖 KI-Agenten
+
+Im VS-Code-Terminal stehen vier Agenten bereit: `codex`, `claude`, `goose` und `pi`. Beim ersten Start musst du den gewünschten Agenten noch mit einem Modellanbieter verbinden.
+
 ### 📁 Eigene Dateien
 
 Du kannst Dateien im VS-Code-Explorer per Drag-and-drop hochladen.
