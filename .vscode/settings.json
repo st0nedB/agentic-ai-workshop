@@ -1,4 +1,8 @@
 {
   "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000
+  "files.autoSaveDelay": 1000,
+  "markdown.marp.themes": [
+    "slides/themes/tu-ilmenau.css"
+  ],
+  "markdown.marp.exportType": "pdf"
 }
