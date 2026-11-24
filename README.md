@@ -22,7 +22,7 @@ OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and 
 
 ### Task 02 — Data analysis
 
-**[02 – UAV measurement data](02_data_analysis/README.md)**: Download and verify the ISAC UAV measurement dataset in preparation for data analysis.
+**[02 – UAV measurement data](02_data_analysis/README.md)**: Analyze an organizer-provided HDF5 measurement file. Optional dataset acquisition instructions are included for the organizer.
 
 ### Block 3 — Container isolation
 
