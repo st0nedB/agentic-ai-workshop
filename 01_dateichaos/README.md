@@ -1,40 +1,40 @@
-# Praxis 01 – Bring Ordnung ins Chaos
+# Exercise 01 – Organize the Chaos
 
-**Block 1: Vom LLM zum KI-Agenten · 40 Minuten Gruppenarbeit**
+**Block 1: From LLMs to AI Agents · 40 minutes of group work**
 
 ## Situation
 
-Ihr übernehmt ein Forschungsprojekt. Euer Vorgänger hat einen Ordner mit unsortierten Dokumenten, Tabellen, Bildern und Notizen hinterlassen. Dateinamen sind uneinheitlich und einige Dateien könnten Duplikate oder ältere Versionen sein.
+You are taking over a research project. A colleague left behind an unstructured folder containing documents, spreadsheets, images, and notes. Filenames are inconsistent, and some files may be duplicates or outdated versions.
 
-## Euer Auftrag
+## Your assignment
 
-> Analysiert den Ordner `01_dateichaos/arbeitsordner/` und organisiert die Dateien so, dass neue Projektmitglieder sich schnell zurechtfinden.
+> Analyze the folder `01_dateichaos/arbeitsordner/` and organize the files so that a new team member can find their way around.
 
-Nutzt einen der vorinstallierten Agenten (`codex`, `claude`, `goose` oder `pi`). Gebt zunächst nur diesen offenen Arbeitsauftrag. Beobachtet, welche Dateien der Agent tatsächlich untersucht, welche Werkzeuge er aufruft und welche Entscheidungen er selbst trifft.
+Use any of the preinstalled CLI agents (`codex`, `claude`, `goose`, or `pi`). Start with just this open-ended assignment. Observe which files the agent actually reads, which tools it calls, and which decisions it makes independently.
 
-**Zeitvorschlag:** 5 Minuten Orientierung, 20 Minuten Agentenarbeit, 10 Minuten Ergebnisprüfung, 5 Minuten Beobachtungen notieren.
+**Suggested timing:** 5 minutes to explore, 20 minutes with the agent, 10 minutes to verify the result, 5 minutes to record your observations.
 
-## Gemeinsame Auswertung
+## Group discussion
 
-- Welche Änderungen hat der Agent vorgenommen?
-- Hat er Inhalte geprüft oder nur aus Dateinamen geschlossen?
-- Wie ging er mit möglichen Duplikaten, widersprüchlichen Versionen und Unsicherheit um?
-- Welche Entscheidungen würdet ihr nicht ungeprüft übernehmen?
+- What did the agent change?
+- Did it inspect file contents, or just infer from filenames?
+- How did it handle possible duplicates, competing versions, and uncertainty?
+- Which decisions would you not approve without verification?
 
-## Ausgangsdaten
+## Source materials
 
-Die **45 vollständig fiktiven Beispieldateien (16,26 MB)** werden beim Erstellen des Codespace automatisch nach `01_dateichaos/arbeitsordner/` geladen. Falls sie fehlen:
+The **45 entirely fictional files (16.26 MB)** are automatically downloaded to `01_dateichaos/arbeitsordner/` when your Codespace is created. If they are missing:
 
 ```bash
 python3 01_dateichaos/material_bereitstellen.py
 ```
 
-Um die Ausgangslage **unter Verlust aller Änderungen im Arbeitsordner** wiederherzustellen:
+To restore the original files (**this deletes all your changes to the working folder**):
 
 ```bash
 python3 01_dateichaos/material_bereitstellen.py --reset
 ```
 
-Die Dateien stammen unverändert aus dem Workshop [Using AI Agents for Reproducible Research](https://github.com/techczech/agents-for-reproducibility). Die Lizenz- und Urheberangaben stehen in [QUELLEN_UND_LIZENZ.md](QUELLEN_UND_LIZENZ.md).
+The files come, unchanged, from the workshop [Using AI Agents for Reproducible Research](https://github.com/techczech/agents-for-reproducibility). See [sources and licensing](QUELLEN_UND_LIZENZ.md) for attribution and terms.
 
-**Wichtig:** Nur mit den fiktiven Beispieldaten arbeiten; keine echten vertraulichen oder personenbezogenen Unterlagen hochladen.
+**Important:** Use the fictional sample data only. Do not upload real confidential documents or personal information.

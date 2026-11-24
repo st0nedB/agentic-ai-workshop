@@ -166,3 +166,36 @@ section.section::after {
 }
 
 /* Optional callout: use Markdown blockquote for orange emphasis. */
+
+
+/* Compact layouts for technical diagrams and code walkthroughs. */
+section.compact {
+  font-size: 26px;
+}
+section.compact h1, section.exercise h1, section.token h1 {
+  margin-bottom: 18px;
+}
+section.compact li {
+  margin-bottom: 5px;
+}
+section.compact blockquote {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 10px 18px;
+}
+section.exercise {
+  font-size: 25px;
+}
+section.exercise li {
+  margin-bottom: 4px;
+}
+section.exercise blockquote {
+  margin: 12px 0;
+  padding: 10px 17px;
+}
+section.token {
+  font-size: 26px;
+}
+section.token li {
+  margin-bottom: 5px;
+}

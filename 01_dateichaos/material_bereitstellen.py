@@ -26,17 +26,17 @@ DEST = ROOT / "arbeitsordner"
 def prepare(reset: bool = False) -> None:
     if DEST.exists():
         if not reset:
-            print(f"Arbeitsordner vorhanden, keine Änderungen: {DEST}")
+            print(f"Working folder already exists; left unchanged: {DEST}")
             return
         if DEST.is_symlink():
-            raise RuntimeError("Arbeitsordner ist ein Symlink; Abbruch aus Sicherheitsgründen.")
+            raise RuntimeError("Working folder is a symlink; refusing to proceed.")
         shutil.rmtree(DEST)
-        print("Vorhandene Arbeitskopie gelöscht (--reset).")
+        print("Existing working copy removed (--reset).")
 
     with tempfile.TemporaryDirectory(prefix=".ausgangsdaten-", dir=ROOT) as tmp:
         temp_root = Path(tmp)
         archive_file = temp_root / "original.zip"
-        print(f"Lade 45 fiktive Beispieldateien herunter: {SOURCE_REPO}@{SOURCE_COMMIT[:12]}")
+        print(f"Downloading 45 fictional sample files: {SOURCE_REPO}@{SOURCE_COMMIT[:12]}")
         request = Request(SOURCE_URL, headers={"User-Agent": "agentic-ai-workshop"})
         with urlopen(request, timeout=120) as response, archive_file.open("wb") as output:
             shutil.copyfileobj(response, output)
@@ -52,18 +52,18 @@ def prepare(reset: bool = False) -> None:
                     continue
                 relative_parts = parts[3:]
                 if any(part in (".", "..") for part in relative_parts):
-                    raise RuntimeError("Unsicherer Dateipfad im Archiv.")
+                    raise RuntimeError("Unsafe path in source archive.")
                 # Never extract symlinks.
                 if (item.external_attr >> 16) & 0o170000 == 0o120000:
-                    raise RuntimeError("Unerwarteter Symlink im Quelldatensatz.")
+                    raise RuntimeError("Unexpected symlink in source archive.")
                 selected.append((item, Path(*relative_parts)))
 
             count = len(selected)
             total_bytes = sum(item.file_size for item, _ in selected)
             if count != EXPECTED_FILE_COUNT or total_bytes != EXPECTED_TOTAL_BYTES:
                 raise RuntimeError(
-                    f"Quelldatensatz unerwartet verändert: {count} Dateien, "
-                    f"{total_bytes} Bytes (erwartet: {EXPECTED_FILE_COUNT}, "
+                    f"Source dataset changed unexpectedly: {count} files, "
+                    f"{total_bytes} Bytes (expected: {EXPECTED_FILE_COUNT}, "
                     f"{EXPECTED_TOTAL_BYTES})."
                 )
 
@@ -74,8 +74,8 @@ def prepare(reset: bool = False) -> None:
                     shutil.copyfileobj(source, target)
 
         shutil.move(str(extracted), str(DEST))
-    print(f"Fertig: {EXPECTED_FILE_COUNT} Dateien in {DEST}")
-    print("Quelle und CC-BY-4.0-Hinweis: 01_dateichaos/QUELLEN_UND_LIZENZ.md")
+    print(f"Done: {EXPECTED_FILE_COUNT} Dateien in {DEST}")
+    print("Source and CC BY 4.0 attribution: 01_dateichaos/QUELLEN_UND_LIZENZ.md")
 
 
 if __name__ == "__main__":
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--reset",
         action="store_true",
-        help="Vorhandenen Arbeitsordner mit ALLEN Änderungen löschen und neu herunterladen.",
+        help="Delete the working folder and ALL changes, then download it again.",
     )
     args = parser.parse_args()
     prepare(reset=args.reset)

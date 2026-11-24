@@ -1,38 +1,38 @@
 # Agentic AI Workshop
 
-Deine Arbeitsumgebung für den Workshop – direkt im Browser, ohne Installation.
+A browser-based environment for the workshop. No local installation is needed.
 
-### 🚀 Los geht’s
+### Get started
 
-**[Workshop starten](https://codespaces.new/st0nedB/agentic-ai-workshop)**
+**[Launch the workshop Codespace](https://codespaces.new/st0nedB/agentic-ai-workshop)**
 
-1. Bei **GitHub anmelden**.
-2. **Create codespace** wählen (am besten mit **2 Cores**).
-3. Warten, bis sich **VS Code** öffnet. Fertig!
+1. **Sign in to GitHub**.
+2. Select **Create codespace** (preferably **2 cores**).
+3. Wait for **VS Code** to open.
 
-### 🤖 KI-Agenten
+### AI agents
 
-Im VS-Code-Terminal stehen vier Agenten bereit: `codex`, `claude`, `goose` und `pi`. Beim ersten Start musst du den gewünschten Agenten noch mit einem Modellanbieter verbinden.
+Four CLI agents are available in the VS Code terminal: `codex`, `claude`, `goose`, and `pi`. Connect your chosen agent to a model provider before using it.
 
-### 🧩 Erste Praxisaufgabe
+### First hands-on exercise
 
-**[01 – Bring Ordnung ins Chaos](01_dateichaos/README.md)**: Der fiktive Dateiordner wird im Codespace automatisch bereitgestellt. Quellen und CC-BY-4.0-Lizenz: [Quellenhinweise](01_dateichaos/QUELLEN_UND_LIZENZ.md).
+**[01 – Organize the Chaos](01_dateichaos/README.md)**: A fictional folder is automatically prepared in your Codespace. See the [source attribution and CC BY 4.0 license](01_dateichaos/QUELLEN_UND_LIZENZ.md).
 
-### 🎞️ Workshop-Folien
+### Workshop slides
 
-Die [Markdown-Folienvorlage](slides/decks/00-vorlage.md) verwendet die TU-Farben. PDFs werden automatisch über [GitHub Actions](.github/workflows/build-slides.yml) erzeugt. [Anleitung](slides/README.md).
+The [Markdown slide template](slides/decks/00-template.md) uses TU Ilmenau's documented colors. PDFs are built through [GitHub Actions](.github/workflows/build-slides.yml). See the [slide build instructions](slides/README.md).
 
-### 📁 Eigene Dateien
+### Your files
 
-Du kannst Dateien im VS-Code-Explorer per Drag-and-drop hochladen.
+You can drag and drop files into the VS Code Explorer.
 
-- **`workspace/eingang/`** – deine Dokumente
-- **`workspace/ergebnisse/`** – deine Ergebnisse
+- **`workspace/eingang/`** – your input documents
+- **`workspace/ergebnisse/`** – your outputs
 
-Die Ordner werden beim ersten Start automatisch angelegt.
+These folders are created when the Codespace starts.
 
 ---
 
-**Zum Schluss:** [Codespace stoppen](https://github.com/codespaces), damit keine weitere Rechenzeit verbraucht wird.
+**At the end:** [Stop your Codespace](https://github.com/codespaces) to stop consuming compute time.
 
-*Hinweis: Die Nutzung wird deinem GitHub-Konto zugerechnet und ist im Rahmen deines verfügbaren Freikontingents kostenlos.*
+*Note: Usage counts against your own GitHub account. It is free within your remaining included allowance.*

@@ -1,47 +1,47 @@
-# Folien: Markdown → PDF
+# Slides: Markdown → PDF
 
-Die Workshop-Folien werden als **Marp-Markdown** gepflegt. Eine Datei unter `slides/decks/*.md` ergibt genau eine PDF-Präsentation im **16:9-Format**.
+Workshop slides use **Marp Markdown**. Each file under `slides/decks/*.md` produces one **16:9 PDF presentation**.
 
-## Neue Präsentation erstellen
+## Create a slide deck
 
-Die Vorlage [00-vorlage.md](decks/00-vorlage.md) kopieren, beispielsweise nach `decks/01-llm-und-agenten.md`. Mit `---` werden Folien getrennt.
+Copy [00-template.md](decks/00-template.md), for example to `decks/02-context-engineering.md`. Use `---` to separate slides.
 
-- `#` = Folientitel
-- `##` = Untertitel
-- `<!-- _class: lead -->` = dunkle Titelfolie
-- `<!-- _class: section -->` = farbige Abschnittsfolie
-- Normales Markdown für Listen, Tabellen, Code und Zitate
-- Marp-Vorschau direkt in VS Code mit der installierten Erweiterung **Marp for VS Code**
+- `#` = slide title
+- `##` = subtitle
+- `<!-- _class: lead -->` = dark title slide
+- `<!-- _class: section -->` = colored section divider
+- Standard Markdown for lists, tables, code, and quotations
+- Live preview in VS Code using the **Marp for VS Code** extension
 
-**PDF auf GitHub:** Ein Push mit Änderungen an `slides/**` baut automatisch PDFs. Unter **Actions → Build workshop slides → Artifacts** liegt die Datei `workshop-slides-pdf` mit allen Präsentationen. Der Workflow kann auch manuell gestartet werden.
+**PDF through GitHub:** A push changing `slides/**` automatically runs the PDF build. Download the `workshop-slides-pdf` artifact from **Actions → Build workshop slides → Artifacts**. You can also run the workflow manually.
 
-**PDF lokal:** Mit installiertem Docker/Podman-Docker-CLI vom Repository-Stamm aus:
+**Local PDF build:** With Docker installed, run from the repository root:
 
 ```bash
 bash scripts/build-slides.sh
 ```
 
-Ergebnis: `slides/dist/*.pdf`. Der Export verwendet den offiziellen, Chromium-haltigen Marp-Container. Damit muss lokal weder Marp noch Chromium installiert werden. In GitHub Codespaces ist nur die **Markdown-Vorschau** vorgesehen; der PDF-Build erfolgt über GitHub Actions.
+The files appear in `slides/dist/*.pdf`. The official Marp CLI image provides Chromium, so no local Marp or browser installation is needed. Codespaces is intended for Markdown previews; the PDF build runs in GitHub Actions.
 
-## Gestaltung
+## Design
 
-Ein gemeinsames, minimalistisches Template unter [themes/tu-ilmenau.css](themes/tu-ilmenau.css) verwendet die **dokumentierten TU-Hausfarben**:
+The minimal [TU Ilmenau slide theme](themes/tu-ilmenau.css) uses the university's documented colors:
 
-| Rolle | Farbe |
+| Role | Color |
 |---|---|
-| Technisches Blau (Primär) | `#003359` |
-| Traditionelles Grün (Primär) | `#00747A` |
-| Orange (Akzent) | `#FF7900` |
+| Dark blue | `#003359` |
+| Green | `#00747A` |
+| Orange accent | `#FF7900` |
 
-**Quelle der Farbwerte:** *Technische Universität Ilmenau – Corporate Design*, Kapitel „Die Farben“, S. 6–7: [Corporate-Design-Handbuch (PDF)](https://www.designtagebuch.de/cd-manuals/TU-Ilmenau-Corporate_Design.pdf). Das Design orientiert sich zugleich am bisherigen schlichten Markdown-PDF-Template (dunkle Überschriften, helle Flächen, sparsame Akzente), verwendet aber die offiziellen Farbwerte anstatt nur angenäherter Farbtöne.
+**Color source:** *Technische Universität Ilmenau – Corporate Design*, “Die Farben,” pp. 6–7: [Corporate Design Manual (PDF)](https://www.designtagebuch.de/cd-manuals/TU-Ilmenau-Corporate_Design.pdf). The layout also follows the earlier minimal Markdown-to-PDF style, while using the documented color values.
 
-Als Schrift nutzt es **Arial** bzw. eine freie Sans-Serif-Fallbackschrift. Die universitätseigene Schrift und das TU-Logo sind bewusst **nicht** eingebettet. Das Template ist eine eigene Workshop-Gestaltung und keine offizielle, freigegebene TU-Publikationsvorlage.
+The theme uses **Arial** or an open sans-serif fallback. It does not embed a university logo or proprietary university fonts and is not an officially approved university publication template.
 
-## Technische Umsetzung
+## Implementation
 
-- [Marp CLI](https://github.com/marp-team/marp-cli) für Markdown → PDF
-- [scripts/build-slides.sh](../scripts/build-slides.sh) als einheitlicher Build-Aufruf
-- [GitHub Actions](../.github/workflows/build-slides.yml) für automatischen PDF-Export
-- `slides/dist/` bleibt aus Git ausgeschlossen
+- [Marp CLI](https://github.com/marp-team/marp-cli) for Markdown → PDF
+- [scripts/build-slides.sh](../scripts/build-slides.sh) for local builds
+- [GitHub Actions](../.github/workflows/build-slides.yml) for automated exports
+- `slides/dist/` is excluded from Git
 
-Folieninhalte und Design bleiben vollständig in Textdateien versionierbar.
+The source Markdown and theme CSS remain fully editable and version-controlled.
