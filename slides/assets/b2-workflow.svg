@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="255" viewBox="0 0 1100 255"><defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#607487"/></marker>
+</defs>
+<style>text{font-family:Arial,'Liberation Sans',sans-serif}.h{font-size:28px;font-weight:700;fill:#003359}.s{font-size:22px;fill:#17324D}.m{font-size:20px;fill:#607487}.w{fill:#fff}.bold{font-weight:bold}.line{fill:none;stroke:#607487;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}.arrow{fill:none;stroke:#607487;stroke-width:3;marker-end:url(#arr)}</style>
+<rect x="23" y="40" width="234" height="115" rx="14" fill="#F4F8FA" stroke="#003359" stroke-width="2.5"/>
+<rect x="302" y="40" width="234" height="115" rx="14" fill="#F4F8FA" stroke="#00747A" stroke-width="2.5"/>
+<rect x="581" y="40" width="234" height="115" rx="14" fill="#F4F8FA" stroke="#00747A" stroke-width="2.5"/>
+<rect x="860" y="40" width="218" height="115" rx="14" fill="#FEF0E3" stroke="#FF7900" stroke-width="2.5"/>
+<text x="140" y="85" text-anchor="middle" class="h">Plan</text><text x="140" y="119" text-anchor="middle" class="m">Steps + assumptions</text>
+<text x="419" y="85" text-anchor="middle" class="h">Execute</text><text x="419" y="119" class="m">Small, traceable steps</text>
+<text x="698" y="85" text-anchor="middle" class="h">Verify</text><text x="698" y="119" text-anchor="middle" class="m">Tests + evidence</text>
+<text x="969" y="85" text-anchor="middle" class="h">Approve</text><text x="969" y="119" text-anchor="middle" class="m">Human checkpoint</text>
+<path d="M259 96 H298" class="arrow"/><path d="M538 96 H577" class="arrow"/><path d="M817 96 H855" class="arrow"/>
+<path d="M698 158 V213 H141 V158" class="line"/><path d="M135 169 L141 158 L147 169" class="line"/>
+<text x="420" y="203" text-anchor="middle" class="m">If evidence fails: revise the plan</text>
+<text x="551" y="249" text-anchor="middle" class="m">Autonomy within agreed boundaries. Approval for risky actions.</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 265" width="1100" height="265"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto" viewBox="0 0 8 8"><path d="M0 0 L8 4 L0 8 z" fill="#00747A" /></marker></defs><style>text{font-family:Arial,'Liberation Sans',sans-serif;}.t{fill:#17324D;font-size:23px;}.s{fill:#607487;font-size:20px;}.h{fill:#003359;font-size:28px;font-weight:bold;}.white{fill:white;}.arr{stroke:#00747A;stroke-width:3;fill:none;marker-end:url(#arr);}</style>
+<rect x="20" y="45" rx="14" width="244" height="144" fill="#F4F8FA" stroke="#003359" stroke-width="2.5"/>
+<rect x="322" y="45" rx="14" width="460" height="144" fill="#E9F4F2" stroke="#00747A" stroke-width="2.5"/>
+<rect x="841" y="45" rx="14" width="239" height="144" fill="#FFF0E4" stroke="#FF7900" stroke-width="2.5"/>
+<text class="h" x="142" y="94" text-anchor="middle">Goal</text><text class="s" x="142" y="135" text-anchor="middle">"Analyze this data"</text>
+<text class="h" x="551" y="93" text-anchor="middle">Task specification</text>
+<text class="t" x="551" y="130" text-anchor="middle">Inputs · Boundaries · Criteria</text>
+<text class="h" x="962" y="94" text-anchor="middle">Deliverable</text><text class="s" x="962" y="135" text-anchor="middle">Chart + report</text>
+<path class="arr" d="M269 116 H312"/><path class="arr" d="M786 116 H833"/>
+<text class="s" x="550" y="239" text-anchor="middle">The agent chooses the steps. The assignment defines success.</text>
+</svg>

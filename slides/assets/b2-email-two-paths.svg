@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 322" width="1100" height="322"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto" viewBox="0 0 8 8"><path d="M0 0 L8 4 L0 8 z" fill="#00747A" /></marker></defs><style>text{font-family:Arial,'Liberation Sans',sans-serif;}.t{fill:#17324D;font-size:23px;}.s{fill:#607487;font-size:20px;}.h{fill:#003359;font-size:28px;font-weight:bold;}.white{fill:white;}.arr{stroke:#00747A;stroke-width:3;fill:none;marker-end:url(#arr);}</style>
+<rect x="13" y="20" rx="16" width="524" height="272" fill="#F4F8FA" stroke="#C9D8DD" stroke-width="2.5"/>
+<rect x="562" y="20" rx="16" width="525" height="272" fill="#E7F3F1" stroke="#00747A" stroke-width="2.5"/>
+<text class="h" x="40" y="63">Shell-tool route</text><text class="h" x="589" y="63">MCP route</text>
+<g class="t">
+<text x="42" y="108">1. Locate a suitable email CLI / API</text>
+<text x="42" y="147">2. Configure access and permissions</text>
+<text x="42" y="186">3. Query folders, filter messages</text>
+<text x="42" y="225">4. Parse the returned output</text>
+</g>
+<rect x="591" y="91" width="466" height="70" fill="#00747A" rx="9"/>
+<text x="824" y="120" font-family="monospace" font-size="23" fill="#ffffff" text-anchor="middle">mail.list_unread(limit=5)</text>
+<text x="824" y="148" font-size="18" fill="#ffffff" text-anchor="middle">A declared, structured tool call</text>
+<text class="t" x="597" y="202">Server handles authentication + filtering</text>
+<text class="t" x="597" y="241">Returns only requested metadata</text>
+<text class="s" x="550" y="313" text-anchor="middle">Both approaches can be secure and efficient with well-designed tools.</text>
+</svg>
