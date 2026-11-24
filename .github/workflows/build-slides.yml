@@ -1,0 +1,31 @@
+name: Build workshop slides
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'slides/**'
+      - 'scripts/build-slides.sh'
+      - '.github/workflows/build-slides.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Marp PDFs
+        run: bash scripts/build-slides.sh
+
+      - name: Upload PDF presentations
+        uses: actions/upload-artifact@v4
+        with:
+          name: workshop-slides-pdf
+          path: slides/dist/*.pdf
+          if-no-files-found: error
+          retention-days: 30
