@@ -18,6 +18,10 @@ Im VS-Code-Terminal stehen vier Agenten bereit: `codex`, `claude`, `goose` und `
 
 **[01 – Bring Ordnung ins Chaos](01_dateichaos/README.md)**: Der fiktive Dateiordner wird im Codespace automatisch bereitgestellt. Quellen und CC-BY-4.0-Lizenz: [Quellenhinweise](01_dateichaos/QUELLEN_UND_LIZENZ.md).
 
+### 🎞️ Workshop-Folien
+
+Die [Markdown-Folienvorlage](slides/decks/00-vorlage.md) verwendet die TU-Farben. PDFs werden automatisch über [GitHub Actions](.github/workflows/build-slides.yml) erzeugt. [Anleitung](slides/README.md).
+
 ### 📁 Eigene Dateien
 
 Du kannst Dateien im VS-Code-Explorer per Drag-and-drop hochladen.
