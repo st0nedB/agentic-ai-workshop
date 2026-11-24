@@ -3,6 +3,8 @@ name: Build workshop slides
 on:
   push:
     branches: [main]
+    tags:
+      - '*'
     paths:
       - 'slides/**'
       - 'scripts/build-slides.sh'
@@ -29,3 +31,48 @@ jobs:
           path: slides/dist/*.pdf
           if-no-files-found: error
           retention-days: 30
+
+  publish-release:
+    needs: build-pdf
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download built PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: workshop-slides-pdf
+          path: slides/dist
+
+      - name: Publish individual PDF release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          pdfs=(slides/dist/*.pdf)
+          if (( ${#pdfs[@]} == 0 )); then
+            echo "No PDFs available for release." >&2
+            exit 1
+          fi
+
+          tag="$GITHUB_REF_NAME"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            # Support retries and releases created through the GitHub UI.
+            # Never overwrite an existing asset for a published version.
+            existing=$(gh release view "$tag" --json assets --jq '.assets[].name')
+            for pdf in "${pdfs[@]}"; do
+              name=$(basename "$pdf")
+              if grep -Fxq -- "$name" <<< "$existing"; then
+                echo "Asset already exists; leaving unchanged: $name"
+              else
+                gh release upload "$tag" "$pdf"
+              fi
+            done
+          else
+            gh release create "$tag" "${pdfs[@]}" \
+              --verify-tag --title "$tag" --generate-notes
+          fi

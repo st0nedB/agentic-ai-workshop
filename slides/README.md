@@ -13,7 +13,20 @@ Copy [00-template.md](decks/00-template.md), for example to `decks/02-context-en
 - Standard Markdown for lists, tables, code, and quotations
 - Live preview in VS Code using the **Marp for VS Code** extension
 
-**PDF through GitHub:** A push changing `slides/**` automatically runs the PDF build. Download the `workshop-slides-pdf` artifact from **Actions → Build workshop slides → Artifacts**. You can also run the workflow manually.
+**PDF through GitHub:** A push changing `slides/**` on `main` automatically runs the PDF build. The `workshop-slides-pdf` Actions artifact remains available for build verification. You can also run the workflow manually.
+
+## Publish a version
+
+Only a pushed Git tag triggers release publication. The tag name is the workshop version; use a version such as `v1.0.0`. Tag the commit that contains the intended workshop materials:
+
+```bash
+git tag -a v1.0.0 -m "Workshop v1.0.0"
+git push origin v1.0.0
+```
+
+GitHub Actions builds the PDFs from the tagged commit and publishes each PDF separately under [Releases](https://github.com/st0nedB/agentic-ai-workshop/releases), using the tag as the release title. The release contains individual PDF assets, not a ZIP of the slides. GitHub may additionally show its automatic source-code archives.
+
+Ordinary branch pushes and manual workflow runs never publish releases. Existing release assets are not overwritten on retries. Create a new version tag for changed slides; do not move an existing tag.
 
 **Local PDF build:** With Docker installed, run from the repository root:
 
