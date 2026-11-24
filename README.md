@@ -12,7 +12,7 @@ A browser-based environment for the workshop. No local installation is needed.
 
 ### AI agents
 
-Five CLI agents are available in the VS Code terminal: `codex`, `claude`, `goose`, `pi`, and `opencode`. Connect your chosen agent to a model provider before using it.
+Four CLI agents are available in the VS Code terminal: `codex`, `claude`, `pi`, and `opencode`. Connect your chosen agent to a model provider before using it.
 
 OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and propose an approach, then Build to carry it out.
 
