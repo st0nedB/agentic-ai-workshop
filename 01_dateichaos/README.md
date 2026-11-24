@@ -16,10 +16,11 @@ Use any of the preinstalled CLI agents (`codex`, `claude`, `goose`, or `pi`). St
 
 ## Group discussion
 
-- What did the agent change?
-- Did it inspect file contents, or just infer from filenames?
-- How did it handle possible duplicates, competing versions, and uncertainty?
-- Which decisions would you not approve without verification?
+- Did it inspect file contents or rely on filenames?
+- Which decisions did it make without asking?
+- How can we verify that it preserved information?
+
+When comparing results, consider possible duplicates, competing versions, uncertainty, and whether any moves, overwrites, or deletions require verification.
 
 ## Source materials
 
