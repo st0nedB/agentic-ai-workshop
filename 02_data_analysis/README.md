@@ -1,4 +1,4 @@
-# ISAC UAV measurement data
+# Task 02 — Data analysis: ISAC UAV measurement data
 
 [Original dataset](https://github.com/EMS-TU-Ilmenau/isac-uav-dataset) · [Documentation](https://ems-tu-ilmenau.github.io/isac-uav-dataset-docs/)
 
@@ -7,11 +7,11 @@ The original measurement data is **not stored on GitHub**. It is distributed as 
 From the repository root:
 
 ```bash
-python 0n_measurement_data/download_smallest.py --dry-run
-python 0n_measurement_data/download_smallest.py
+python 02_data_analysis/download_smallest.py --dry-run
+python 02_data_analysis/download_smallest.py
 ```
 
-The script determines the smallest complete scenario by comparing the advertised archive sizes, prompts for the official dataset password, downloads and decrypts the three receiver archives, and checks the original SHA-256 hashes. Six `.h5` files are saved in `0n_measurement_data/data/`. Neither the password nor the data files are committed to Git.
+The script determines the smallest complete scenario by comparing the advertised archive sizes, prompts for the official dataset password, downloads and decrypts the three receiver archives, and checks the original SHA-256 hashes. Six `.h5` files are saved in `02_data_analysis/data/`. Neither the password nor the data files are committed to Git.
 
 Requirements: internet access to `resdata.tu-ilmenau.de`, the dataset password, and `openssl`. The automatic size comparison requires the server to expose accurate Content-Length information. If sizes cannot be determined, the script fails rather than guessing. The upstream repository does not provide per-scenario sizes.
 
