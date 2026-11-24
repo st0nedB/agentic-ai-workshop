@@ -14,6 +14,10 @@ Deine Arbeitsumgebung für den Workshop – direkt im Browser, ohne Installation
 
 Im VS-Code-Terminal stehen vier Agenten bereit: `codex`, `claude`, `goose` und `pi`. Beim ersten Start musst du den gewünschten Agenten noch mit einem Modellanbieter verbinden.
 
+### 🧩 Erste Praxisaufgabe
+
+**[01 – Bring Ordnung ins Chaos](01_dateichaos/README.md)**: Der fiktive Dateiordner wird im Codespace automatisch bereitgestellt. Quellen und CC-BY-4.0-Lizenz: [Quellenhinweise](01_dateichaos/QUELLEN_UND_LIZENZ.md).
+
 ### 📁 Eigene Dateien
 
 Du kannst Dateien im VS-Code-Explorer per Drag-and-drop hochladen.
