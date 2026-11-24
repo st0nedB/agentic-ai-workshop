@@ -4,7 +4,7 @@
     "cpus": 2,
     "memory": "8gb"
   },
-  "postCreateCommand": "mkdir -p workspace/eingang workspace/ergebnisse",
+  "postCreateCommand": "mkdir -p workspace/eingang workspace/ergebnisse && python3 01_dateichaos/material_bereitstellen.py",
   "customizations": {
     "vscode": {
       "extensions": [
