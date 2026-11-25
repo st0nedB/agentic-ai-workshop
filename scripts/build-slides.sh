@@ -33,4 +33,6 @@ for source in "${decks[@]}"; do
     "${source}"
 done
 
+cp slides/handouts/prompting-cheat-sheet.pdf slides/dist/
+
 echo "Done: slides/dist/*.pdf"

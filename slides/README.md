@@ -2,6 +2,10 @@
 
 Workshop slides use **Marp Markdown**. Each file under `slides/decks/*.md` produces one **16:9 PDF presentation**.
 
+## A4 handout
+
+[Prompting cheat sheet (PDF)](handouts/prompting-cheat-sheet.pdf) is a one-page printable companion to Block 2. The workflow includes it in the workshop PDFs and uploads a separate `prompting-cheat-sheet` artifact. To update the checked-in PDF, install ReportLab and run `python3 slides/handouts/prompting-cheat-sheet.py` from the repository root.
+
 ## Create a slide deck
 
 Copy [00-template.md](decks/00-template.md), for example to `decks/02-context-engineering.md`. Use `---` to separate slides.
