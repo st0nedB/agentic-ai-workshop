@@ -11,6 +11,6 @@ prepare() {
     failed=1
   fi
 }
-prepare "Exercise 1" 01_dateichaos/material_bereitstellen.py
+prepare "Exercise 1" 01_file_organization/prepare.py
 prepare "Exercise 4" 03_sandboxing/prepare.py
 exit "$failed"

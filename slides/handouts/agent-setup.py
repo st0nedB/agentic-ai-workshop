@@ -79,7 +79,7 @@ TEST = ('Verify the connection', 'Prompt: <i>Run pwd and report its output. Do n
 OPEN_CODE = [
     KEY, TERMINAL,
     ('Start and connect', 'Run ' + code('opencode') + ' in the terminal. Inside OpenCode, enter ' + code('/connect') + ', select OpenRouter, paste the key and confirm. Slash commands are entered in the agent, not Bash. The saved login normally survives a restart; reconnect after a rebuild or deletion if needed.'),
-    ('Select a model', 'Enter ' + code('/models') + ' and choose an OpenRouter model with tool-calling support. Check prices at <link href="https://openrouter.ai/models">OpenRouter Models</link> and verify the selected model.'),
+    ('Select a model', 'Enter ' + code('/models') + ' and choose DeepSeek Flash Latest or another OpenRouter model with tool-calling support. Check prices at <link href="https://openrouter.ai/models">OpenRouter Models</link> and verify the selected model.'),
     ('Plan and build', 'Use Shift+Tab to switch between Plan and Build in OpenCode 2.x; check the on-screen shortcut if it differs. Review the plan before allowing edits.'),
     TEST,
     ('Troubleshoot', 'Unauthorized: reconnect and check the key. Insufficient credits: check your balance. Model unavailable: choose another via ' + code('/models') + '. Exit with ' + code('/exit') + '; reopen with ' + code('opencode') + '.'),
@@ -88,8 +88,8 @@ CODEX = [
     KEY, TERMINAL,
     ('Load the key', 'In Bash, run the following and paste the key when prompted. Input is hidden; repeat in each new terminal or after a Codespace restart.<br/>' + code('read -rsp "OpenRouter API key: " OPENROUTER_API_KEY\nexport OPENROUTER_API_KEY\necho')),
     ('Open configuration', code('mkdir -p ~/.codex\nnano ~/.codex/config.toml') + '<br/>Preserve existing settings. Home-directory config may be lost on rebuild; deletion removes the Codespace.'),
-    ('Configure provider', code('model = "openai/gpt-5.6-luna"\nmodel_provider = "openrouter"\n\n[model_providers.openrouter]\nname = "OpenRouter"\nbase_url = "https://openrouter.ai/api/v1"\nwire_api = "responses"\n\n[model_providers.openrouter.auth]\ncommand = "sh"\nargs = ["-c", "echo $OPENROUTER_API_KEY"]') + '<br/>Save with Ctrl+O, Enter; exit with Ctrl+X.'),
-    ('Start Codex', 'Start with the cheaper example model, or choose another compatible full ID from <link href="https://openrouter.ai/models">OpenRouter Models</link> with Responses API and tool support. Run ' + code('codex') + ' in the same terminal. Use ' + code('/model') + ' or ' + code('/status') + ' inside Codex.'),
+    ('Configure provider', code('model = "~deepseek/deepseek-flash-latest"\nmodel_provider = "openrouter"\n\n[model_providers.openrouter]\nname = "OpenRouter"\nbase_url = "https://openrouter.ai/api/v1"\nwire_api = "responses"\n\n[model_providers.openrouter.auth]\ncommand = "sh"\nargs = ["-c", "echo $OPENROUTER_API_KEY"]') + '<br/>Save with Ctrl+O, Enter; exit with Ctrl+X.'),
+    ('Start Codex', 'Start with DeepSeek Flash Latest, or choose another compatible full ID from <link href="https://openrouter.ai/models">OpenRouter Models</link> with Responses API and tool support. Run ' + code('codex') + ' in the same terminal. Use ' + code('/model') + ' or ' + code('/status') + ' inside Codex.'),
     TEST,
     ('Troubleshoot', 'Check the key, credits, TOML syntax and model compatibility. Exit with ' + code('/quit') + '.'),
 ]

@@ -20,7 +20,7 @@ Run `opencode` in the terminal. Inside OpenCode, enter `/connect`, select OpenRo
 
 ### 4. Select a model
 
-Enter `/models` and choose an OpenRouter model with tool-calling support. Check prices at [OpenRouter Models](https://openrouter.ai/models) and verify the selected model.
+Enter `/models` and choose DeepSeek Flash Latest or another OpenRouter model with tool-calling support. Check prices at [OpenRouter Models](https://openrouter.ai/models) and verify the selected model.
 
 ### 5. Plan and build
 
@@ -66,7 +66,7 @@ Preserve existing settings. Home-directory config may be lost on rebuild; deleti
 ### 5. Configure provider
 
 ```
-model = "openai/gpt-5.6-luna"
+model = "~deepseek/deepseek-flash-latest"
 model_provider = "openrouter"
 
 [model_providers.openrouter]
@@ -83,7 +83,7 @@ Save with Ctrl+O, Enter; exit with Ctrl+X.
 
 ### 6. Start Codex
 
-Start with the cheaper example model, or choose another compatible full ID from [OpenRouter Models](https://openrouter.ai/models) with Responses API and tool support. Run `codex` in the same terminal. Use `/model` or `/status` inside Codex.
+Start with DeepSeek Flash Latest, or choose another compatible full ID from [OpenRouter Models](https://openrouter.ai/models) with Responses API and tool support. Run `codex` in the same terminal. Use `/model` or `/status` inside Codex.
 
 ### 7. Verify the connection
 

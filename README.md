@@ -10,6 +10,8 @@ A hands-on workshop on using, directing, and safely running AI agents. The exerc
 | 2 — Directing AI Agents | Provide context, define success, review plans, and use skills and MCP. | 2 — Analyze measurement data; 3 — Draw the actual workflow | [PDF](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/02-directing-ai-agents.pdf) |
 | 3 — Sandboxing AI Agents | Understand and compare enforced access boundaries. | 4 — One task, two security boundaries | [PDF](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/03-sandboxing-ai-agents.pdf) |
 
+The numbered directories correspond to the three workshop blocks. Exercises 2 and 3 share `02_data_analysis/` because the second exercise builds on the analysis from the first.
+
 ## Get started
 
 You need a GitHub account and an API key or another form of model access supported by your chosen agent. The setup guides use [OpenRouter](https://openrouter.ai/), which may require purchased credits.
@@ -43,9 +45,9 @@ If you are unsure which model to use, I recommend starting with [DeepSeek Flash 
 
 ## Block 1 — From LLMs to AI Agents
 
-### [Exercise 1 — Organize the Chaos](01_dateichaos/README.md)
+### [Exercise 1 — Organize the Chaos](01_file_organization/README.md)
 
-Organize a fictional research folder and observe which files the agent reads, which tools it uses, and which decisions it makes independently. The sample files are automatically prepared in your Codespace. See the [source attribution and CC BY 4.0 license](01_dateichaos/QUELLEN_UND_LIZENZ.md).
+Organize a fictional research folder and observe which files the agent reads, which tools it uses, and which decisions it makes independently. The sample files are automatically prepared in your Codespace. See the [source attribution and CC BY 4.0 license](01_file_organization/SOURCES_AND_LICENSE.md).
 
 ## Block 2 — Directing AI Agents
 

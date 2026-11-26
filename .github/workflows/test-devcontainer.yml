@@ -5,14 +5,14 @@ on:
     branches: [main]
     paths:
       - '.devcontainer/**'
-      - '01_dateichaos/**'
+      - '01_file_organization/**'
       - '02_data_analysis/**'
       - '03_sandboxing/**'
       - '.github/workflows/test-devcontainer.yml'
   pull_request:
     paths:
       - '.devcontainer/**'
-      - '01_dateichaos/**'
+      - '01_file_organization/**'
       - '02_data_analysis/**'
       - '03_sandboxing/**'
       - '.github/workflows/test-devcontainer.yml'

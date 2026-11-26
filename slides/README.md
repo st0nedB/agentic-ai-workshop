@@ -10,7 +10,7 @@ The OpenCode and Codex setup guides are combined in `Agent-Setup.pdf`, with one 
 
 ## Create a slide deck
 
-Copy [00-template.md](decks/00-template.md), for example to `decks/02-context-engineering.md`. Use `---` to separate slides.
+Copy [00-template.md](templates/00-template.md), for example to `decks/02-context-engineering.md`. Use `---` to separate slides.
 
 - `#` = slide title
 - `##` = subtitle

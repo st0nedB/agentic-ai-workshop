@@ -3,7 +3,7 @@
 from collections import defaultdict
 from pathlib import Path
 import tempfile
-from material_bereitstellen import DEST, prepare
+from prepare import DEST, prepare
 
 
 def inventory(root):

@@ -1,4 +1,4 @@
-# Zugangsdaten / lokale Umgebungen
+# Credentials and local environments
 .env
 .env.*
 !.env.example
@@ -6,8 +6,12 @@
 *.key
 .venv/
 
-# Python und temporäre Dateien
+# Python and temporary files
 __pycache__/
 .pytest_cache/
 *.py[cod]
 .DS_Store
+
+# Preserve untracked work from older Codespaces until migrated.
+/01_dateichaos/arbeitsordner/
+/01_dateichaos/.ausgangsdaten-*/

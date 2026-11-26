@@ -73,18 +73,18 @@ The harness assembles the request and sends it to the LLM. The LLM requests `ls`
 
 **11:20–12:00 · Group work**
 
-> “Analyze `01_dateichaos/arbeitsordner/` and organize it so a new team member can find their way around.”
+> “Analyze `01_file_organization/working/` and organize it so a new team member can find their way around.”
 
 **Observe and discuss:**
 - Did it inspect file contents or rely on filenames?
 - Which decisions did it make without asking?
-- Verify file preservation after the run using `01_dateichaos/verify.py`.
+- Verify file preservation after the run using `01_file_organization/verify.py`.
 
 **Safety:** Review moves, overwrites, and deletions; use fictional files only.
 
 **12:00–12:15 · Discuss and compare results**
 
-[Exercise instructions](https://github.com/st0nedB/agentic-ai-workshop/blob/main/01_dateichaos/README.md)
+[Exercise instructions](https://github.com/st0nedB/agentic-ai-workshop/blob/main/01_file_organization/README.md)
 
 ---
 

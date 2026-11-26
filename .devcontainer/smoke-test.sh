@@ -27,7 +27,7 @@ for attempt in range(10):
             raise SystemExit(f"SSH server not reachable on port 2222: {exc}")
         time.sleep(1)
 PY
-test "$(find 01_dateichaos/arbeitsordner -type f | wc -l)" -eq 45
+test "$(find 01_file_organization/working -type f | wc -l)" -eq 45
 test -d 03_sandboxing/runtime/working/.git
 test -f 03_sandboxing/runtime/private_repo/id_ed25519
 bash 03_sandboxing/run.sh verify
@@ -42,9 +42,9 @@ test -s "$tmp/results/RESULTS.md"
 python3 - <<'PY'
 import sys
 from pathlib import Path
-sys.path.insert(0, "01_dateichaos")
+sys.path.insert(0, "01_file_organization")
 from verify import inventory, compare
-root = Path("01_dateichaos/arbeitsordner")
+root = Path("01_file_organization/working")
 original = inventory(root)
 assert sum(map(len, original.values())) == 45
 assert compare(original, original) == 0

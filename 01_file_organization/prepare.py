@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Load the CC BY 4.0 fictional workshop archive into a local working folder.
 
-Source and attribution: see QUELLEN_UND_LIZENZ.md.
+Source and attribution: see SOURCES_AND_LICENSE.md.
 Uses only the Python standard library.
 """
 from __future__ import annotations
@@ -20,10 +20,16 @@ SOURCE_URL = f"https://codeload.github.com/{SOURCE_REPO}/zip/{SOURCE_COMMIT}"
 EXPECTED_FILE_COUNT = 45
 EXPECTED_TOTAL_BYTES = 16_256_497
 ROOT = Path(__file__).resolve().parent
-DEST = ROOT / "arbeitsordner"
+DEST = ROOT / "working"
 
 
 def prepare(reset: bool = False, dest: Path = DEST) -> None:
+    if dest == DEST and not dest.exists():
+        legacy = ROOT.parent / "01_dateichaos" / "arbeitsordner"
+        if legacy.is_dir() and not legacy.is_symlink() and not reset:
+            shutil.move(str(legacy), str(dest))
+            print(f"Migrated existing working copy to {dest}")
+            return
     if dest.exists():
         if not reset:
             print(f"Working folder already exists; left unchanged: {dest}")
@@ -33,7 +39,7 @@ def prepare(reset: bool = False, dest: Path = DEST) -> None:
         shutil.rmtree(dest)
         print("Existing working copy removed (--reset).")
 
-    with tempfile.TemporaryDirectory(prefix=".ausgangsdaten-", dir=ROOT) as tmp:
+    with tempfile.TemporaryDirectory(prefix=".download-", dir=ROOT) as tmp:
         temp_root = Path(tmp)
         archive_file = temp_root / "original.zip"
         print(f"Downloading 45 fictional sample files: {SOURCE_REPO}@{SOURCE_COMMIT[:12]}")
@@ -63,7 +69,7 @@ def prepare(reset: bool = False, dest: Path = DEST) -> None:
             if count != EXPECTED_FILE_COUNT or total_bytes != EXPECTED_TOTAL_BYTES:
                 raise RuntimeError(
                     f"Source dataset changed unexpectedly: {count} files, "
-                    f"{total_bytes} Bytes (expected: {EXPECTED_FILE_COUNT}, "
+                    f"{total_bytes} bytes (expected: {EXPECTED_FILE_COUNT}, "
                     f"{EXPECTED_TOTAL_BYTES})."
                 )
 
@@ -74,8 +80,8 @@ def prepare(reset: bool = False, dest: Path = DEST) -> None:
                     shutil.copyfileobj(source, target)
 
         shutil.move(str(extracted), str(dest))
-    print(f"Done: {EXPECTED_FILE_COUNT} Dateien in {dest}")
-    print("Source and CC BY 4.0 attribution: 01_dateichaos/QUELLEN_UND_LIZENZ.md")
+    print(f"Done: {EXPECTED_FILE_COUNT} files in {dest}")
+    print("Source and CC BY 4.0 attribution: 01_file_organization/SOURCES_AND_LICENSE.md")
 
 
 if __name__ == "__main__":

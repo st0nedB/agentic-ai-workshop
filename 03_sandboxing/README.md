@@ -84,7 +84,7 @@ export OPENROUTER_API_KEY
 bash 03_sandboxing/run.sh isolated
 ```
 
-If `OPENROUTER_API_KEY` was already set securely, you only need the last command. Select any compatible model from the [recommended workshop models](../MODEL-RECOMMENDATIONS.md), or another OpenRouter model. Set its full ID, for example `export WORKSHOP_MODEL='openai/gpt-6-luna'`, before running the isolated agent. If unset, the launcher uses `openrouter/auto`, whose model and cost can vary. Record the models used in both runs; they need not be identical. Attribute differences in enforced access to the environment, not differences in model behavior.
+If `OPENROUTER_API_KEY` was already set securely, you only need the last command. Select any compatible model from the [recommended workshop models](../MODEL-RECOMMENDATIONS.md), or another OpenRouter model. Set its full ID, for example `export WORKSHOP_MODEL='~deepseek/deepseek-flash-latest'`, before running the isolated agent. If unset, the launcher uses `openrouter/auto`, whose model and cost can vary. Record the models used in both runs; they need not be identical. Attribute differences in enforced access to the environment, not differences in model behavior.
 
 The verification step builds a Docker image using the OpenCode package version installed in your Codespace. The launcher rebuilds the image if that version changes and checks that both executables report the same version. Give the **same task** to the isolated agent. Compare its access and the result. The child does not receive `OPENROUTER_API_KEY`.
 
