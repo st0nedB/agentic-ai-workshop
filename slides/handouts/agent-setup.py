@@ -15,10 +15,7 @@ INK = "#17324D"
 MUTED = "#607487"
 
 
-def render(filename, title, rows, guides, output_dir):
-    pdf = Canvas(str(output_dir / filename), pagesize=A4, invariant=True)
-    pdf.setTitle(title)
-    pdf.setAuthor("Agentic AI Workshop")
+def render(pdf, title, rows, guides):
     width, height = A4
     left, right = 15 * mm, width - 15 * mm
 
@@ -67,7 +64,7 @@ def render(filename, title, rows, guides, output_dir):
         pdf.linkURL(url, (x, 30, x + extent, 42))
         x -= 10
     label(x - pdf.stringWidth("Documentation", "Helvetica", 9), 32, "Documentation", 9, MUTED)
-    pdf.save()
+    pdf.showPage()
 
 
 
@@ -103,7 +100,12 @@ if __name__ == "__main__":
     parser.add_argument("--output-dir", type=Path, default=Path(__file__).parent)
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    render("04a-opencode-setup.pdf", "OpenCode setup", OPEN_CODE,
-           [("Providers", "https://opencode.ai/docs/providers/"), ("Models", "https://opencode.ai/docs/models/")], args.output_dir)
-    render("04c-codex-setup.pdf", "Codex setup", CODEX,
-           [("Codex / OpenRouter", "https://openrouter.ai/blog/tutorials/codex-cli-openrouter/")], args.output_dir)
+    pdf = Canvas(str(args.output_dir / "Agent-Setup.pdf"), pagesize=A4, invariant=True)
+    pdf.setTitle("Agent Setup")
+    pdf.setAuthor("Agentic AI Workshop")
+    render(pdf, "OpenCode setup", OPEN_CODE,
+           [("Providers", "https://opencode.ai/docs/providers/"), ("Models", "https://opencode.ai/docs/models/")])
+    render(pdf, "Codex setup", CODEX,
+           [("Codex / OpenRouter", "https://openrouter.ai/blog/tutorials/codex-cli-openrouter/")])
+
+    pdf.save()
