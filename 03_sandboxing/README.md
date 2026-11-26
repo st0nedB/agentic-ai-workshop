@@ -40,6 +40,8 @@ These instructions are also provided in `working/AGENTS.md`. The agent should in
 
 ## Participant workflow
 
+This exercise requires OpenCode. If you used Codex earlier, configure OpenCode using the [agent setup guide](../slides/handouts/Agent-Setup.md) before starting. Exit any running agent and enter the following commands in Bash, not in the agent prompt.
+
 **Step 1 — Predict, prepare and check (5 min)**
 
 Before running the verification script, record your predictions for each environment: can the agent read and modify `working/`, read the dummy key, read Git history, and modify the original `.git` directory?
@@ -47,6 +49,7 @@ Before running the verification script, record your predictions for each environ
 From the workshop repository root:
 
 ```bash
+cd "$(git rev-parse --show-toplevel)"
 bash 03_sandboxing/run.sh prepare
 bash 03_sandboxing/run.sh verify
 ```

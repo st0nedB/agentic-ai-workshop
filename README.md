@@ -2,6 +2,14 @@
 
 A hands-on workshop on using, directing, and safely running AI agents. The exercises run in a browser-based GitHub Codespace; no local installation is needed.
 
+## Before the workshop
+
+- [ ] Create a [GitHub account](https://github.com/) and check your Codespaces allowance.
+- [ ] Create an [OpenRouter account](https://openrouter.ai/) and an [API key](https://openrouter.ai/settings/keys). Add credits if using paid models and set a spending limit on the key.
+- [ ] Set your Codespaces idle timeout to 60 minutes in your [GitHub settings](https://github.com/settings/codespaces).
+
+You can use OpenCode or Codex for Exercises 1–3. **Exercise 4 requires OpenCode and an OpenRouter API key**, so keep the key available. If you prefer to configure only one agent, choose OpenCode.
+
 ## Workshop overview
 
 | Block | Learning objective | Exercises | Slides |
@@ -25,7 +33,7 @@ You need a GitHub account and an API key or another form of model access support
 
 **Costs:** GitHub Codespaces and model inference are billed separately. Codespaces usage is free within your included allowance. A 4-core Codespace consumes that compute allowance twice as fast as a 2-core Codespace, giving you half as many free runtime hours. Model costs depend on your provider and selected model. Never put API keys in prompts or tracked files.
 
-**Idle timeout:** Codespaces automatically stop after 30 minutes of inactivity by default, which can interrupt agent work. You can adjust the idle timeout in your [GitHub Codespaces settings](https://github.com/settings/codespaces).
+**Idle timeout:** Codespaces automatically stop after 30 minutes of inactivity by default, which can interrupt agent work. I recommend increasing the idle timeout to 60 minutes in your [GitHub Codespaces settings](https://github.com/settings/codespaces).
 
 **Git:** You do not need to push anything to GitHub during this workshop. Working in your Codespace does not grant write access to the upstream workshop repository. If you want to publish your work, use your own repository or fork.
 
@@ -37,7 +45,7 @@ The workshop uses two preinstalled CLI agents in the VS Code terminal: OpenCode 
 
 **[Agent setup instructions (PDF)](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/Agent-Setup.pdf)** · [Markdown](slides/handouts/Agent-Setup.md) — OpenCode (page 1), Codex (page 2).
 
-OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and propose an approach, then Build to carry it out. Exercise 4 uses OpenCode and requires an OpenRouter API key for the isolated run.
+OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and propose an approach, then Build to carry it out. **If you start with Codex, you will also need to configure OpenCode before Exercise 4.**
 
 ### Recommended models
 

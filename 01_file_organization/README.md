@@ -10,6 +10,13 @@ You are taking over a research project. A colleague left behind an unstructured 
 
 > Analyze the folder `01_file_organization/working/` and organize the files so that a new team member can find their way around.
 
+From the workshop repository root, open your chosen agent:
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+opencode  # or: codex
+```
+
 Use either of the workshop CLI agents (`codex` or `opencode`). Start with just this open-ended assignment. Observe which files the agent actually reads, which tools it calls, and which decisions it makes independently.
 
 **Suggested timing:** 5 minutes to explore, 20 minutes with the agent, 10 minutes to verify the result, 5 minutes to record your observations.
@@ -19,6 +26,7 @@ Use either of the workshop CLI agents (`codex` or `opencode`). Start with just t
 After the agent finishes, run from the repository root:
 
 ```bash
+cd "$(git rev-parse --show-toplevel)"
 python3 01_file_organization/verify.py
 ```
 
@@ -37,6 +45,7 @@ When comparing results, consider possible duplicates, competing versions, uncert
 The **45 entirely fictional files (16.26 MB)** are automatically downloaded to `01_file_organization/working/` when your Codespace is created. If they are missing:
 
 ```bash
+cd "$(git rev-parse --show-toplevel)"
 python3 01_file_organization/prepare.py
 ```
 

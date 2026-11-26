@@ -9,6 +9,7 @@ The organizer will supply one ISAC UAV measurement `.h5` file in `02_data_analys
 If the actual file is unavailable, generate a small, explicitly synthetic fallback from the repository root:
 
 ```bash
+cd "$(git rev-parse --show-toplevel)"
 python3 02_data_analysis/fallback/generate.py
 ```
 
@@ -24,7 +25,15 @@ Use `02_data_analysis/data/synthetic.h5` and its [documented schema](fallback/RE
 
 Before installing a third-party skill, inspect its instructions and any accompanying scripts. Only use code you are prepared to trust.
 
-Start your agent in `02_data_analysis/`. Save all deliverables under `02_data_analysis/results/`:
+Start your agent in `02_data_analysis/`:
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+cd 02_data_analysis
+opencode  # or: codex
+```
+
+Save all deliverables under `02_data_analysis/results/`:
 
 - Agent Contract and reproducible analysis code.
 - Two plots with labeled axes and documented units where known.
@@ -41,6 +50,7 @@ The original measurement data is **not stored on GitHub**. It is distributed as 
 From the repository root:
 
 ```bash
+cd "$(git rev-parse --show-toplevel)"
 python 02_data_analysis/download_smallest.py --dry-run
 python 02_data_analysis/download_smallest.py
 ```

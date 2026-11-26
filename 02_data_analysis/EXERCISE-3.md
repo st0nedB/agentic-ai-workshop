@@ -12,6 +12,14 @@ If Exercise 2 is incomplete, use the [synthetic reference analysis](fallback/REA
 
 ## Assignment
 
+If you have exited your agent since Exercise 2, reopen it from the analysis directory:
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+cd 02_data_analysis
+opencode  # or: codex
+```
+
 Ask the agent to inspect the actual analysis code and create an editable Excalidraw diagram of its workflow. Show the input, file loading, data transformations, visualization and outputs. Do not invent processing steps.
 
 1. **Connect and inspect (10 min):** Find and connect an Excalidraw MCP server. Identify the code, input and outputs to be visualized.
