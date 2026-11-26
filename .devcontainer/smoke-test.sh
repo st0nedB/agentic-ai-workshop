@@ -12,7 +12,21 @@ python3 -c 'import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot a
 docker info >/dev/null
 # Confirm SSH is installed and actually listening inside the dev container.
 command -v sshd >/dev/null || test -x /usr/sbin/sshd
-python3 -c 'import socket; socket.create_connection(("127.0.0.1", 22), timeout=5).close()'
+# The Dev Container sshd feature listens on port 2222 by default.
+python3 - <<'PY'
+import socket
+import time
+
+for attempt in range(10):
+    try:
+        with socket.create_connection(("127.0.0.1", 2222), timeout=2):
+            print("SSH server reachable on port 2222")
+        break
+    except OSError as exc:
+        if attempt == 9:
+            raise SystemExit(f"SSH server not reachable on port 2222: {exc}")
+        time.sleep(1)
+PY
 test "$(find 01_dateichaos/arbeitsordner -type f | wc -l)" -eq 45
 test -d 03_sandboxing/runtime/working/.git
 test -f 03_sandboxing/runtime/private_repo/id_ed25519
