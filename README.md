@@ -35,7 +35,7 @@ OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and 
 
 ### Recommended models
 
-Choose any compatible model. See [recommended workshop models](MODEL-RECOMMENDATIONS.md) for a shortlist of affordable options, current example prices and guidance on free models. There is no mandatory model.
+If you are unsure which model to use, I recommend starting with [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna). It is inexpensive and a reasonable choice for the types of tasks we will work on. You are free to use a different model, provided it supports tool calling and works with your agent. See the [model recommendations](MODEL-RECOMMENDATIONS.md) for alternatives.
 
 ## Block 1 — From LLMs to AI Agents
 
