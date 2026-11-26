@@ -1,4 +1,4 @@
-# Python-based Codespaces image with four CLI agents.
+# Python-based Codespaces image with CLI agents.
 # This image does not store API keys or preconfigure model providers.
 FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 
@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 USER root
 
-# Node.js 24 LTS is needed by the current npm packages, including Claude Code.
+# Node.js 24 LTS is needed by the current npm packages.
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends ca-certificates curl gnupg bzip2 unzip; \
@@ -25,10 +25,8 @@ RUN set -eux; \
     mkdir -p "${NPM_CONFIG_PREFIX}" "/home/vscode/.local/bin"; \
     npm install --global --no-audit --no-fund \
       @openai/codex \
-      @anthropic-ai/claude-code \
       @mariozechner/pi-coding-agent \
       @opencode/cli; \
     codex --version; \
-    claude --version; \
     pi --version; \
     opencode --version

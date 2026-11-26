@@ -10,7 +10,7 @@ You are taking over a research project. A colleague left behind an unstructured 
 
 > Analyze the folder `01_dateichaos/arbeitsordner/` and organize the files so that a new team member can find their way around.
 
-Use any of the preinstalled CLI agents (`codex`, `claude`, `pi`, or `opencode`). Start with just this open-ended assignment. Observe which files the agent actually reads, which tools it calls, and which decisions it makes independently.
+Use either of the workshop CLI agents (`codex` or `opencode`). Start with just this open-ended assignment. Observe which files the agent actually reads, which tools it calls, and which decisions it makes independently.
 
 **Suggested timing:** 5 minutes to explore, 20 minutes with the agent, 10 minutes to verify the result, 5 minutes to record your observations.
 

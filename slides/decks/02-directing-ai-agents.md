@@ -75,7 +75,7 @@ An instruction file gives the agent repeatable project guidance.
 - Document assumptions in RESULTS.md.
 ```
 
-**Codex:** `AGENTS.md`     **Claude Code:** `CLAUDE.md`
+**Codex and OpenCode:** `AGENTS.md`
 
 Each harness has its own conventions for loading project instructions.
 
