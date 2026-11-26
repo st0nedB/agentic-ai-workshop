@@ -14,6 +14,12 @@ A browser-based environment for the workshop. No local installation is needed.
 
 Four CLI agents are available in the VS Code terminal: `codex`, `claude`, `pi`, and `opencode`. Connect your chosen agent to a model provider before using it.
 
+**Agent setup instructions (PDF):**
+
+- [OpenCode](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/04a-opencode-setup.pdf)
+- [Codex](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/04c-codex-setup.pdf)
+- [Claude Code](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/04d-claude-code-setup.pdf)
+
 OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and propose an approach, then Build to carry it out.
 
 ### First hands-on exercise
