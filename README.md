@@ -2,14 +2,6 @@
 
 A hands-on workshop on using, directing, and safely running AI agents. The exercises run in a browser-based GitHub Codespace; no local installation is needed.
 
-## Before the workshop
-
-- [ ] Create a [GitHub account](https://github.com/) and check your Codespaces allowance.
-- [ ] Create an [OpenRouter account](https://openrouter.ai/) and an [API key](https://openrouter.ai/settings/keys). Add credits if using paid models and set a spending limit on the key.
-- [ ] Set your Codespaces idle timeout to 60 minutes in your [GitHub settings](https://github.com/settings/codespaces).
-
-You can use OpenCode or Codex for Exercises 1–3. **Exercise 4 requires OpenCode and an OpenRouter API key**, so keep the key available. If you prefer to configure only one agent, choose OpenCode.
-
 ## Workshop overview
 
 | Block | Learning objective | Exercises | Slides |
