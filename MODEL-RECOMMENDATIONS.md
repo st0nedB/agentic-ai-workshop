@@ -9,8 +9,6 @@ DeepSeek Flash Latest automatically points to the latest model in the Flash fami
 | [DeepSeek Flash Latest](https://openrouter.ai/~deepseek/deepseek-flash-latest) | $0.036 | $0.50 |
 | [GLM 5.3 Flash](https://openrouter.ai/z-ai/glm-5.3-flash) | $0.036 | $0.082 |
 | [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna) | $0.10 | $0.50 |
-| [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna) | $0.20 | $1.20 |
-| [Gemini 3.8 Flash](https://openrouter.ai/google/gemini-3.8-flash) | $0.75 | $3.75 |
 
 *OpenRouter prices as of 26 November 2026, rounded where appropriate. Follow the model links for current prices.*
 
