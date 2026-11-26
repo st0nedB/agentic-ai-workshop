@@ -35,7 +35,7 @@ OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and 
 
 ### Recommended models
 
-If you are unsure which model to use, I recommend starting with [GPT-6 Luna](https://openrouter.ai/openai/gpt-6-luna). It is inexpensive and a reasonable choice for the types of tasks we will work on. You are free to use a different model, provided it supports tool calling and works with your agent. See the [model recommendations](MODEL-RECOMMENDATIONS.md) for alternatives.
+If you are unsure which model to use, I recommend starting with [DeepSeek Flash Latest](https://openrouter.ai/~deepseek/deepseek-flash-latest). It is inexpensive and a reasonable choice for the types of tasks we will work on. You are free to use a different model, provided it supports tool calling and works with your agent. See the [model recommendations](MODEL-RECOMMENDATIONS.md) for alternatives.
 
 ## Block 1 — From LLMs to AI Agents
 
