@@ -83,3 +83,5 @@ Compare OpenCode running directly in Codespaces with the same agent inside a res
 The PDFs are published with [tagged releases](https://github.com/st0nedB/agentic-ai-workshop/releases/latest). For build instructions, see [slides/README.md](slides/README.md).
 
 ---
+
+*This workshop was conceived, designed, and implemented with the assistance of ChatGPT (OpenAI).*
