@@ -6,9 +6,9 @@ Derived from measurement `0to1_H15_V5_VGH2` of the ISAC UAV dataset.
 
 | File | Content |
 |---|---|
-| `0to1_H15_V5_VGH2_channel.h5` | Channel reduced to the 0–0.8 µs delay span (52.7 MB, was 995 MB) |
-| `0to1_H15_V5_VGH2_target.h5` | Unchanged copy of the original target file |
-| `0to1_H15_V5_VGH2_ddmap.mp4` | Delay-Doppler map video with UAV marker |
+| `channel.h5` | Channel reduced to the 0–0.8 µs delay span (52.7 MB, was 995 MB) |
+| `target.h5` | Unchanged copy of the original target file |
+| `.example/ddmap.mp4` | Delay-Doppler map video with UAV marker |
 
 ## Channel reduction
 
@@ -38,7 +38,7 @@ Zero-padding only interpolates. The resolution stays at 12.5 ns and 12.2 Hz.
 - Documentation: <https://ems-tu-ilmenau.github.io/isac-uav-dataset-docs/>
 - Licence: [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode).
   It covers the measurement files, metadata and all other repository contents.
-  The files here are adapted material under this licence.
+  Distribution of the adapted channel data and derived video in this workshop repository is separately authorized by the rights holders; the original CC BY-NC-ND 4.0 licence does not itself authorize sharing adaptations.
 - Cite:
   J. Beuster, C. Andrich, M. Döbereiner, S. Schieler, M. Engelhardt, C. Schneider and R. Thomä,
   "Measurement Testbed for Radar and Emitter Localization of UAV at 3.75 GHz,"

@@ -147,9 +147,10 @@ All three supply context; they do not create new model capabilities.
 
 # The measurement file
 
-**Input:** One organizer-provided `.h5` file in `02_data_analysis/data/`.
+**Input:** `channel.h5` and `target.h5` in `02_data_analysis/dataset/` (Git LFS).
 
-- ISAC UAV measurements; a synthetic fallback is available if needed.
+- ISAC UAV measurements; choose your own analysis objective.
+- The example video in `dataset/.example/` is optional inspiration.
 - HDF5 stores arrays and metadata in a hierarchical structure.
 - Inspect dataset names, shapes, attributes and available documentation before interpreting values.
 - Choose plots appropriate to the measured quantities and their documented units.
@@ -164,10 +165,10 @@ All three supply context; they do not create new model capabilities.
 
 **13:25–13:55 · Group work**
 
-1. Inspect the dataset and define an **Agent Contract**.
+1. Inspect the dataset, choose an objective and define an **Agent Contract**.
 2. Request a plan without edits; review it before execution.
 3. Inspect the [Scientific Visualization Skill](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md). Find out how to use it with your agent and apply it during execution.
-4. Save the contract, code, two labeled plots and interpretation in `results/`.
+4. Save the contract, code, two meaningful labeled visualizations and interpretation in `results/`.
 
 **Verify:** Do the plots match the data and units? Are the processing steps reproducible?
 
@@ -224,7 +225,7 @@ MCP tools are still tools; a skill supplies reusable guidance. An agent can comb
 **14:20–14:55 · Group work**
 
 1. Find an **Excalidraw MCP server** and connect it to your agent.
-2. Inspect the actual Exercise 2 code (or the reference analysis).
+2. Inspect the actual Exercise 2 code, even if incomplete.
 3. Draw the workflow from **file loading** through **processing** to **visualization**.
 4. Compare the diagram with the code and correct missing or invented steps.
 

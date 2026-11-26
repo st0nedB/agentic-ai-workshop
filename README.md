@@ -55,7 +55,7 @@ Organize a fictional research folder and observe which files the agent reads, wh
 
 ### [Exercise 2 — Analyze measurement data](02_data_analysis/README.md)
 
-Analyze an organizer-provided HDF5 measurement file. Define an Agent Contract, review a proposed plan, inspect and apply an existing visualization skill, and verify the resulting plots and code. A synthetic fallback is available if the organizer-provided file is missing. Optional dataset acquisition instructions are included for the organizer.
+Choose your own analysis objective using the supplied ISAC UAV measurement files (`02_data_analysis/dataset/channel.h5` and `target.h5`), included via Git LFS. Define an Agent Contract, review a proposed plan, inspect and apply an existing visualization skill, and verify the resulting plots and code. An example delay-Doppler video is available for inspiration; reproducing it is not required.
 
 ### [Exercise 3 — Draw the actual workflow](02_data_analysis/EXERCISE-3.md)
 
