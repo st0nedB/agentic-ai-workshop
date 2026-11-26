@@ -4,10 +4,10 @@ A browser-based environment for the workshop. No local installation is needed.
 
 ### Get started
 
-**[Launch the workshop Codespace](https://codespaces.new/st0nedB/agentic-ai-workshop)**
+**[Launch or resume the workshop Codespace](https://codespaces.new/st0nedB/agentic-ai-workshop?quickstart=1)**
 
 1. **Sign in to GitHub**.
-2. Select **Create codespace** (preferably **2 cores**).
+2. Resume your existing Codespace or select **Create codespace** (preferably **2 cores**) if you do not have one.
 3. Wait for **VS Code** to open.
 
 ### AI agents
