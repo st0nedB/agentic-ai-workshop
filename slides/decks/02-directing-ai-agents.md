@@ -19,6 +19,8 @@ footer: TU Ilmenau · AI Agent Workshop
 
 **Block 2 · 13:00–15:00**
 
+Objective: Direct agents with context, plans, skills and external tools.
+
 ---
 
 <!-- _class: compact -->
@@ -87,11 +89,11 @@ Each harness has its own conventions for loading project instructions.
 
 ![width:990px](../assets/b2-plan-mode.svg)
 
-- **Plan:** Inspect the dataset and propose analysis steps.
+- **Planning:** Inspect the dataset and propose analysis steps.
 - **Review:** Check the assumptions and expected plots.
-- **Build:** Run the approved analysis and inspect the outputs.
+- **Execution:** Run the approved analysis and inspect the outputs.
 
-Plan Mode provides a useful review checkpoint. Actual tool permissions depend on the harness.
+OpenCode provides Plan and Build agents. Codex also supports planning. Actual tool permissions depend on the harness.
 
 ---
 
@@ -147,7 +149,7 @@ All three supply context; they do not create new model capabilities.
 
 **Input:** One organizer-provided `.h5` file in `02_data_analysis/data/`.
 
-- ISAC measurements from a UAV measurement campaign.
+- ISAC UAV measurements; a synthetic fallback is available if needed.
 - HDF5 stores arrays and metadata in a hierarchical structure.
 - Inspect dataset names, shapes, attributes and available documentation before interpreting values.
 - Choose plots appropriate to the measured quantities and their documented units.
@@ -163,13 +165,15 @@ All three supply context; they do not create new model capabilities.
 **13:25–13:55 · Group work**
 
 1. Inspect the dataset and define an **Agent Contract**.
-2. Use **Plan Mode** to propose a processing and visualization workflow.
+2. Request a plan without edits; review it before execution.
 3. Inspect the [Scientific Visualization Skill](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md). Find out how to use it with your agent and apply it during execution.
-4. Save the analysis code, labeled plots, and a short interpretation.
+4. Save the contract, code, two labeled plots and interpretation in `results/`.
 
 **Verify:** Do the plots match the data and units? Are the processing steps reproducible?
 
 **13:55–14:05 · Share observations and results**
+
+[Exercise instructions](https://github.com/st0nedB/agentic-ai-workshop/blob/main/02_data_analysis/README.md)
 
 ---
 
@@ -218,13 +222,15 @@ MCP tools are still tools; a skill supplies reusable guidance. An agent can comb
 **14:20–14:55 · Group work**
 
 1. Find an **Excalidraw MCP server** and connect it to your agent.
-2. Ask the agent to inspect the analysis it performed in Exercise 2.
+2. Inspect the actual Exercise 2 code (or the reference analysis).
 3. Draw the workflow from **file loading** through **processing** to **visualization**.
 4. Compare the diagram with the code and correct missing or invented steps.
 
-**Deliverable:** An editable workflow diagram with named inputs and outputs.
+**Deliverable:** `results/workflow.excalidraw` and a short source note.
 
 **14:55–15:00 · Compare diagrams**
+
+[Exercise instructions](https://github.com/st0nedB/agentic-ai-workshop/blob/main/02_data_analysis/EXERCISE-3.md)
 
 ---
 

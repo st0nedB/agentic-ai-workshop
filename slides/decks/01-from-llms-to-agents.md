@@ -19,6 +19,8 @@ footer: TU Ilmenau · AI Agent Workshop
 
 **Block 1 · 10:45–12:30**
 
+Objective: Understand how agents use tools and evaluate their actions.
+
 ---
 
 # What does an LLM actually do?
@@ -41,7 +43,7 @@ An LLM predicts the **next token** from its input context. It cannot access your
 ![width:900px](../assets/agent-architecture.svg)
 
 - **LLM:** proposes the next step or a structured tool call.
-- **Agent harness:** manages context, invokes tools, and handles approvals.
+- **Agent harness** (e.g. OpenCode or Codex): manages context, invokes tools, and handles approvals.
 - **Tools:** read or change the environment; results are fed back to the model.
 
 **Host environment:** Enforces access restrictions (e.g. filesystem permissions or isolation).
@@ -66,7 +68,7 @@ The harness assembles the request and sends it to the LLM. The LLM requests `ls`
 
 **11:00–11:20 · Setup**
 
-- Start Codespaces; select an agent and configure your model provider.
+- Start Codespaces; choose an agent harness and configure model access.
 - **Never put API keys in tracked files or commits.**
 
 **11:20–12:00 · Group work**
@@ -76,11 +78,13 @@ The harness assembles the request and sends it to the LLM. The LLM requests `ls`
 **Observe and discuss:**
 - Did it inspect file contents or rely on filenames?
 - Which decisions did it make without asking?
-- How can we verify that it preserved information?
+- Verify file preservation after the run using `01_dateichaos/verify.py`.
 
 **Safety:** Review moves, overwrites, and deletions; use fictional files only.
 
 **12:00–12:15 · Discuss and compare results**
+
+[Exercise instructions](https://github.com/st0nedB/agentic-ai-workshop/blob/main/01_dateichaos/README.md)
 
 ---
 
@@ -116,5 +120,7 @@ The **context window** is the model's limited token budget for a single call. It
 - Which information actually helps the agent?
 - Which instructions and constraints must we state explicitly?
 - How do we check the result?
+
+**12:15–12:30 · Questions, discussion and troubleshooting**
 
 **Next:** Context Engineering · `AGENTS.md` · Agent Contracts
