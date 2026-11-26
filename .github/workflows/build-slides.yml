@@ -4,12 +4,17 @@ on:
   push:
     branches: [main]
     tags:
-      - '*'
+      - 'v[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
     paths:
       - 'slides/**'
       - 'scripts/build-slides.sh'
       - '.github/workflows/build-slides.yml'
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_type != 'tag' }}
 
 permissions:
   contents: read
@@ -25,7 +30,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install handout dependencies
-        run: pip install reportlab
+        run: pip install -r slides/requirements.txt
       - name: Build Marp PDFs
         run: bash scripts/build-slides.sh
 
@@ -79,6 +84,10 @@ jobs:
           fi
 
           tag="$GITHUB_REF_NAME"
+          if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "Not a version tag: $tag" >&2
+            exit 1
+          fi
           if gh release view "$tag" >/dev/null 2>&1; then
             # Support retries and releases created through the GitHub UI.
             # Never overwrite an existing asset for a published version.

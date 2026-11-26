@@ -25,7 +25,7 @@ for source in "${decks[@]}"; do
     -v "${PWD}:/home/marp/app" \
     -e LANG=C.UTF-8 \
     -e MARP_USER="$(id -u):$(id -g)" \
-    marpteam/marp-cli:latest \
+    marpteam/marp-cli@sha256:3cf660df7b9737f875e57f7169dff0b08d1d3ab604ea2d655ab761102942fa42 \
     --theme-set slides/themes/tu-ilmenau.css \
     --allow-local-files \
     --pdf \

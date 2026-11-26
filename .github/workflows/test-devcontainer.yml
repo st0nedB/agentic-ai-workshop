@@ -18,6 +18,10 @@ on:
       - '.github/workflows/test-devcontainer.yml'
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_type != 'tag' }}
+
 permissions:
   contents: read
 
