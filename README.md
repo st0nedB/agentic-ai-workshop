@@ -14,7 +14,7 @@ A browser-based environment for the workshop. No local installation is needed.
 
 The workshop uses two CLI agents in the VS Code terminal: `codex` and `opencode`. Connect your chosen agent to a model provider before using it.
 
-**Agent setup instructions (PDF):**
+**Agent setup instructions (single-page A4 PDFs from the latest release):**
 
 - [OpenCode](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/04a-opencode-setup.pdf)
 - [Codex](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/04c-codex-setup.pdf)

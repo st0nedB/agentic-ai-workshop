@@ -34,5 +34,6 @@ for source in "${decks[@]}"; do
 done
 
 cp slides/handouts/prompting-cheat-sheet.pdf slides/dist/
+python3 slides/handouts/agent-setup.py --output-dir slides/dist
 
 echo "Done: slides/dist/*.pdf"
