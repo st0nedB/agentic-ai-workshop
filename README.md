@@ -29,7 +29,7 @@ You need a GitHub account and an API key or another form of model access support
 
 The workshop uses two preinstalled CLI agents in the VS Code terminal: OpenCode (`opencode`) and Codex (`codex`).
 
-**[Agent setup instructions (PDF)](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/Agent-Setup.pdf)** — OpenCode (page 1), Codex (page 2).
+**[Agent setup instructions (PDF)](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/Agent-Setup.pdf)** · [Markdown](slides/handouts/Agent-Setup.md) — OpenCode (page 1), Codex (page 2).
 
 OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and propose an approach, then Build to carry it out. Exercise 4 uses OpenCode and requires an OpenRouter API key for the isolated run.
 
@@ -65,7 +65,7 @@ Compare OpenCode running directly in Codespaces with the same agent inside a res
 
 ### Handouts
 
-- [Agent setup instructions (PDF)](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/Agent-Setup.pdf)
+- Agent setup instructions: [PDF](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/Agent-Setup.pdf) · [Markdown](slides/handouts/Agent-Setup.md)
 - [Prompting cheat sheet (A4 PDF)](slides/handouts/prompting-cheat-sheet.pdf)
 
 The PDFs are published with [tagged releases](https://github.com/st0nedB/agentic-ai-workshop/releases/latest). For build instructions, see [slides/README.md](slides/README.md).

@@ -42,13 +42,13 @@ def render(pdf, title, rows, guides):
         top = y - 10
         label(left, top - 10, f"{number:02}", 10.5, TEAL, "Helvetica-Bold")
         heading = paragraph(title, "Helvetica-Bold", NAVY, 11, 14)
-        body = paragraph(prompt, "Helvetica", INK, 10.5, 13.5)
-        body_x = left + 135
-        _, h1 = heading.wrap(101, height)
+        body = paragraph(prompt, "Helvetica", INK, 10, 12.5)
+        body_x = left + 120
+        _, h1 = heading.wrap(86, height)
         _, h2 = body.wrap(right - body_x, height)
         heading.drawOn(pdf, left + 23, top - h1)
         body.drawOn(pdf, body_x, top - h2)
-        y = top - max(h1, h2) - 9
+        y = top - max(h1, h2) - 7
 
     if y < 46:
         raise ValueError("Handout content overlaps the footer")
@@ -74,32 +74,64 @@ def code(value):
 
 
 KEY = ('Get an API key', 'Sign in at <link href="https://openrouter.ai">openrouter.ai</link>. Add credits for paid models. Create a key at <link href="https://openrouter.ai/settings/keys">API Keys</link> and set a spending limit if available. Never share the key in prompts, Git or screenshots. OpenRouter bills separately from GitHub.')
-TERMINAL = ('Open the terminal', 'In the Codespace, select <b>Terminal &gt; New Terminal</b>. The agent is preinstalled. Check your location with ' + code('git rev-parse --show-toplevel') + '.')
-TEST = ('Verify the connection', 'Prompt: <i>Reply with CONNECTED. Do not read or modify files or run commands.</i> Check the reply and verify the expected model appears in <link href="https://openrouter.ai/activity">OpenRouter Activity</link>. A reply alone does not prove the provider is correct.')
+TERMINAL = ('Open the terminal', 'In the Codespace, select <b>Terminal &gt; New Terminal</b>. The agent is preinstalled. Check the repository root with ' + code('git rev-parse --show-toplevel') + '. Start the agent in the relevant exercise folder to focus its context; this is not a security boundary.')
+TEST = ('Verify the connection', 'Prompt: <i>Run pwd and report its output. Do not modify files.</i> Check the actual tool call and verify the expected model appears in <link href="https://openrouter.ai/activity">OpenRouter Activity</link>. ')
 OPEN_CODE = [
     KEY, TERMINAL,
-    ('Start and connect', 'Run ' + code('opencode') + ' in the terminal. Inside OpenCode, enter ' + code('/connect') + ', select OpenRouter, paste the key and confirm. Slash commands are entered in the agent, not Bash.'),
+    ('Start and connect', 'Run ' + code('opencode') + ' in the terminal. Inside OpenCode, enter ' + code('/connect') + ', select OpenRouter, paste the key and confirm. Slash commands are entered in the agent, not Bash. The saved login normally survives a restart; reconnect after a rebuild or deletion if needed.'),
     ('Select a model', 'Enter ' + code('/models') + ' and choose an OpenRouter model with tool-calling support. Check prices at <link href="https://openrouter.ai/models">OpenRouter Models</link> and verify the selected model.'),
-    ('Plan and build', 'Use Tab to switch between Plan and Build when available. Review the plan before allowing edits.'),
+    ('Plan and build', 'Use Shift+Tab to switch between Plan and Build in OpenCode 2.x; check the on-screen shortcut if it differs. Review the plan before allowing edits.'),
     TEST,
     ('Troubleshoot', 'Unauthorized: reconnect and check the key. Insufficient credits: check your balance. Model unavailable: choose another via ' + code('/models') + '. Exit with ' + code('/exit') + '; reopen with ' + code('opencode') + '.'),
 ]
 CODEX = [
     KEY, TERMINAL,
-    ('Load the key', 'In Bash, run the following and paste the key when prompted. Input is hidden; repeat in each new terminal.<br/>' + code('read -rsp "OpenRouter API key: " OPENROUTER_API_KEY\nexport OPENROUTER_API_KEY\necho')),
-    ('Open configuration', code('mkdir -p ~/.codex\nnano ~/.codex/config.toml') + '<br/>Preserve existing unrelated settings; avoid duplicate TOML keys.'),
-    ('Configure provider', code('model = "openai/gpt-5.6-sol"\nmodel_provider = "openrouter"\n\n[model_providers.openrouter]\nname = "OpenRouter"\nbase_url = "https://openrouter.ai/api/v1"\nwire_api = "responses"\n\n[model_providers.openrouter.auth]\ncommand = "sh"\nargs = ["-c", "echo $OPENROUTER_API_KEY"]') + '<br/>Save with Ctrl+O, Enter; exit with Ctrl+X.'),
-    ('Start Codex', 'The model ID is an example. Choose a compatible full ID from <link href="https://openrouter.ai/models">OpenRouter Models</link> with Responses API and tool support. Run ' + code('codex') + ' in the same terminal. Use ' + code('/model') + ' or ' + code('/status') + ' inside Codex.'),
+    ('Load the key', 'In Bash, run the following and paste the key when prompted. Input is hidden; repeat in each new terminal or after a Codespace restart.<br/>' + code('read -rsp "OpenRouter API key: " OPENROUTER_API_KEY\nexport OPENROUTER_API_KEY\necho')),
+    ('Open configuration', code('mkdir -p ~/.codex\nnano ~/.codex/config.toml') + '<br/>Preserve existing settings. Home-directory config may be lost on rebuild; deletion removes the Codespace.'),
+    ('Configure provider', code('model = "openai/gpt-5.6-luna"\nmodel_provider = "openrouter"\n\n[model_providers.openrouter]\nname = "OpenRouter"\nbase_url = "https://openrouter.ai/api/v1"\nwire_api = "responses"\n\n[model_providers.openrouter.auth]\ncommand = "sh"\nargs = ["-c", "echo $OPENROUTER_API_KEY"]') + '<br/>Save with Ctrl+O, Enter; exit with Ctrl+X.'),
+    ('Start Codex', 'Start with the cheaper example model, or choose another compatible full ID from <link href="https://openrouter.ai/models">OpenRouter Models</link> with Responses API and tool support. Run ' + code('codex') + ' in the same terminal. Use ' + code('/model') + ' or ' + code('/status') + ' inside Codex.'),
     TEST,
     ('Troubleshoot', 'Check the key, credits, TOML syntax and model compatibility. Exit with ' + code('/quit') + '.'),
 ]
 
+
+def markdown_body(value):
+    import re
+    from html import unescape
+
+    def convert_code(match):
+        source = unescape(match.group(1).replace("<br/>", "\n"))
+        if "\n" in source:
+            return "\n\n" + chr(96) * 3 + "\n" + source + "\n" + chr(96) * 3 + "\n\n"
+        return chr(96) + source + chr(96)
+
+    value = re.sub(r'<font name="Courier">(.*?)</font>', convert_code, value, flags=re.S)
+    value = re.sub(r'<link href="([^"]+)">(.*?)</link>', r'[\2](\1)', value)
+    value = value.replace("<b>", "**").replace("</b>", "**")
+    value = value.replace("<i>", "*").replace("</i>", "*").replace("<br/>", "\n\n")
+    return re.sub(r"\n{3,}", "\n\n", unescape(value).replace("\xa0", " ")).strip()
+
+
+def render_markdown():
+    parts = ["# Agent setup", "Connect to OpenRouter from your workshop Codespace.",
+             "Generated from agent-setup.py; edit that source, not this file."]
+    for name, rows in [("OpenCode", OPEN_CODE), ("Codex", CODEX)]:
+        parts.append("## " + name)
+        for n, (heading, body) in enumerate(rows, 1):
+            parts.extend([f"### {n}. {heading}", markdown_body(body)])
+    return "\n\n".join(parts) + "\n"
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
+    parser.add_argument("--markdown-only", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=Path(__file__).parent)
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    (args.output_dir / "Agent-Setup.md").write_text(render_markdown(), encoding="utf-8")
+    if args.markdown_only:
+        raise SystemExit(0)
     pdf = Canvas(str(args.output_dir / "Agent-Setup.pdf"), pagesize=A4, invariant=True)
     pdf.setTitle("Agent Setup")
     pdf.setAuthor("Agentic AI Workshop")

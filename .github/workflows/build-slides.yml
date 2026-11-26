@@ -29,6 +29,9 @@ jobs:
       - name: Build Marp PDFs
         run: bash scripts/build-slides.sh
 
+      - name: Check generated agent setup Markdown
+        run: diff -u slides/handouts/Agent-Setup.md slides/dist/Agent-Setup.md
+
       - name: Upload PDF presentations
         uses: actions/upload-artifact@v4
         with:
