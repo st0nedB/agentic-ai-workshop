@@ -31,6 +31,8 @@ You need a GitHub account and an API key or another form of model access support
 
 **Forwarded ports:** Keep ports private unless you specifically need to share a service with others.
 
+**At the end:** [Stop your Codespace](https://github.com/codespaces) to stop consuming compute time.
+
 ## AI agents
 
 The workshop uses two preinstalled CLI agents in the VS Code terminal: OpenCode (`opencode`) and Codex (`codex`).
@@ -81,5 +83,3 @@ Compare OpenCode running directly in Codespaces with the same agent inside a res
 The PDFs are published with [tagged releases](https://github.com/st0nedB/agentic-ai-workshop/releases/latest). For build instructions, see [slides/README.md](slides/README.md).
 
 ---
-
-**At the end:** [Stop your Codespace](https://github.com/codespaces) to stop consuming compute time.
