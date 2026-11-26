@@ -33,6 +33,10 @@ The workshop uses two preinstalled CLI agents in the VS Code terminal: OpenCode 
 
 OpenCode includes **Plan** and **Build** agents. Select Plan to investigate and propose an approach, then Build to carry it out. Exercise 4 uses OpenCode and requires an OpenRouter API key for the isolated run.
 
+### Recommended models
+
+Choose any compatible model. See [recommended workshop models](MODEL-RECOMMENDATIONS.md) for a shortlist of affordable options, current example prices and guidance on free models. There is no mandatory model.
+
 ## Block 1 — From LLMs to AI Agents
 
 ### [Exercise 1 — Organize the Chaos](01_dateichaos/README.md)
