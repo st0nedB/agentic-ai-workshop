@@ -16,7 +16,7 @@ The GLM and DeepSeek models are particularly interesting if you want to experime
 
 ## How much will it cost?
 
-As an example, one million input tokens and 100,000 output tokens cost about $0.086 with DeepSeek Flash Latest, compared with $0.15 with GPT-6 Luna. An agent may consume considerably more tokens than a conventional chatbot, since it repeatedly reads files, executes tools and sends their results back to the model. Actual costs depend on how you use it.
+As an example, one million input tokens and 100,000 output tokens cost about $0.086 with DeepSeek Flash Latest (10:1 is a typical ratio), compared with $0.15 with GPT-6 Luna. An agent may consume considerably more tokens than a conventional chatbot, since it repeatedly reads files, executes tools and sends their results back to the model. Actual costs depend on how you use it.
 
 If you do not want to spend money, you can also try [OpenRouter Free](https://openrouter.ai/openrouter/free). However, free models have request limits that you may reach rather quickly during a workshop like this.
 
