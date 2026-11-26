@@ -16,6 +16,9 @@ RUN set -eux; \
     rm -f /tmp/nodesource-setup.sh; \
     rm -rf /var/lib/apt/lists/*
 
+# Scientific Python stack for the measurement exercise.
+RUN python3 -m pip install --no-cache-dir numpy scipy h5py matplotlib pandas
+
 # Install in the normal non-root Codespaces user's home directory.
 USER vscode
 ENV NPM_CONFIG_PREFIX=/home/vscode/.npm-global

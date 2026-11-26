@@ -83,7 +83,7 @@ bash 03_sandboxing/run.sh isolated
 
 If `OPENROUTER_API_KEY` was already set securely, you only need the last command. You can optionally select an affordable model using `export WORKSHOP_MODEL='openrouter/auto'` or another valid OpenRouter model ID.
 
-The first isolated run builds a Docker image with OpenCode. Give the **same task** to the isolated agent. Compare its access and the result. The child does not receive `OPENROUTER_API_KEY`.
+The verification step builds a Docker image using the OpenCode package version installed in your Codespace. The launcher rebuilds the image if that version changes and checks that both executables report the same version. Give the **same task** to the isolated agent. Compare its access and the result. The child does not receive `OPENROUTER_API_KEY`.
 
 **Step 5 — Discuss (8 min)**
 

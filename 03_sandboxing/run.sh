@@ -24,10 +24,22 @@ ensure_docker() {
     echo "Docker unavailable. Rebuild the Codespace with Docker-in-Docker." >&2
     exit 1
   }
-  if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then
-    echo "Building the isolated agent image..."
-    docker build -t "$IMAGE" -f "$ROOT/Dockerfile" "$ROOT"
+  local version cached parent_version child_version
+  version="$(npm list --global --depth=0 --json @opencode/cli | node -e 'const fs=require("fs"); const p=JSON.parse(fs.readFileSync(0,"utf8")); const v=p.dependencies?.["@opencode/cli"]?.version; if (!v) process.exit(1); console.log(v);')" || {
+    echo "Cannot determine installed OpenCode package version." >&2; exit 1;
+  }
+  cached="$(docker image inspect --format '{{index .Config.Labels "workshop.opencode.version"}}' "$IMAGE" 2>/dev/null || true)"
+  if [ "$cached" != "$version" ]; then
+    echo "Building the isolated agent image with OpenCode $version..."
+    docker build --build-arg "OPENCODE_VERSION=$version" -t "$IMAGE" -f "$ROOT/Dockerfile" "$ROOT"
   fi
+  parent_version="$(opencode --version)"
+  child_version="$(docker run --rm --network none "$IMAGE" opencode --version)"
+  if [ "$parent_version" != "$child_version" ]; then
+    echo "OpenCode version mismatch: direct=$parent_version isolated=$child_version" >&2
+    exit 1
+  fi
+  echo "OpenCode version verified in both environments: $parent_version"
 }
 container_args() {
   local uid gid

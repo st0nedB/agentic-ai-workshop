@@ -4,7 +4,7 @@
     "cpus": 2,
     "memory": "8gb"
   },
-  "postCreateCommand": "mkdir -p workspace/eingang workspace/ergebnisse && python3 01_dateichaos/material_bereitstellen.py && python3 03_sandboxing/prepare.py",
+  "postCreateCommand": "bash .devcontainer/initialize.sh",
   "customizations": {
     "vscode": {
       "extensions": [

@@ -1,0 +1,36 @@
+name: Test workshop development container
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.devcontainer/**'
+      - '01_dateichaos/**'
+      - '03_sandboxing/**'
+      - '.github/workflows/test-devcontainer.yml'
+  pull_request:
+    paths:
+      - '.devcontainer/**'
+      - '01_dateichaos/**'
+      - '03_sandboxing/**'
+      - '.github/workflows/test-devcontainer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install Dev Container CLI
+        run: npm install -g @devcontainers/cli
+      - name: Build and initialize development container
+        run: devcontainer up --workspace-folder "$GITHUB_WORKSPACE"
+      - name: Run smoke tests
+        run: devcontainer exec --workspace-folder "$GITHUB_WORKSPACE" bash .devcontainer/smoke-test.sh
