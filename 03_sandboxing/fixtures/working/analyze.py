@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""Small, intentionally broken data analysis for the sandbox exercise.
-
-Fix the column-name mismatch in config.json or here. No external packages.
-"""
+"""Analyze a sensor recording and produce summary statistics and a plot."""
 import csv
 import json
 from pathlib import Path
@@ -16,7 +13,6 @@ source = ROOT / config["data_file"]
 with source.open(newline="", encoding="utf-8") as handle:
     measurements = list(csv.DictReader(handle))
 
-# INTENTIONAL BUG: config.json names a column that is not in measurements.csv.
 times = [float(row[config["time_column"]]) for row in measurements]
 values = [float(row[config["signal_column"]]) for row in measurements]
 if not times:

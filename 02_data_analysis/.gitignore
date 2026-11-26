@@ -2,3 +2,4 @@ data/
 .isac-*/
 *.encrypted
 *.tar.bz2
+results/

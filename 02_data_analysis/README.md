@@ -1,10 +1,34 @@
-# Task 02 — Data analysis: ISAC UAV measurement data
+# Exercise 2 — Analyze measurement data
 
-## Workshop exercise
+**Block 2 · 30 minutes · Group work**
 
-The organizer will supply one `.h5` measurement file in `02_data_analysis/data/`. Participants do not need to download or decrypt the dataset during the workshop.
+## Input and prerequisites
 
-Inspect the HDF5 groups, datasets, shapes and metadata. Define an Agent Contract, review a proposed analysis plan, and apply a visualization skill. Produce two interpretable plots, the generating code, and a short interpretation in `results/`. Preserve the input file and verify units and assumptions against the available documentation.
+The organizer will supply one ISAC UAV measurement `.h5` file in `02_data_analysis/data/`. Participants do not need to download or decrypt it during the workshop. NumPy, SciPy, h5py, Matplotlib and pandas are preinstalled.
+
+If the actual file is unavailable, generate a small, explicitly synthetic fallback from the repository root:
+
+```bash
+python3 02_data_analysis/fallback/generate.py
+```
+
+Use `02_data_analysis/data/synthetic.h5` and its [documented schema](fallback/README.md). It is not a reproduction of the real ISAC dataset.
+
+## Workflow
+
+1. **Inspect (5 min):** Identify the HDF5 groups, datasets, shapes, attributes and available documentation. Do not assume the dimensions or units.
+2. **Define an Agent Contract (5 min):** Specify the input, goal, boundaries and definition of done. Record it in `results/AGENT-CONTRACT.md`. Preserve the input.
+3. **Plan (5 min):** Ask the agent to propose a processing and visualization workflow without editing files. Review assumptions, units and plot choices before approving.
+4. **Execute (10 min):** Apply the Data Visualization Skill provided during the workshop, run the approved plan, and save the analysis code and two interpretable plots.
+5. **Verify (5 min):** Rerun the code, inspect the plots, check units against the evidence, and record assumptions and limitations.
+
+Start your agent in `02_data_analysis/`. Save all deliverables under `02_data_analysis/results/`:
+
+- Agent Contract and reproducible analysis code.
+- Two plots with labeled axes and documented units where known.
+- `RESULTS.md` with a short interpretation, input filename, run command, assumptions and checks.
+
+Do not modify the measurement file or invent missing metadata. Compare findings with your group before continuing to [Exercise 3](EXERCISE-3.md).
 
 ## Optional dataset acquisition (organizer only)
 

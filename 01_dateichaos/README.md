@@ -14,6 +14,16 @@ Use either of the workshop CLI agents (`codex` or `opencode`). Start with just t
 
 **Suggested timing:** 5 minutes to explore, 20 minutes with the agent, 10 minutes to verify the result, 5 minutes to record your observations.
 
+## Verify the result
+
+After the agent finishes, run from the repository root:
+
+```bash
+python3 01_dateichaos/verify.py
+```
+
+The verifier downloads the pinned original into a temporary directory, compares SHA-256 hashes and reports retained, missing, duplicate and new or modified content. It does not change your working files. Renames and moves do not count as content changes. A missing copy may be a deliberate deduplication rather than information loss; review the reported paths. The comparison covers files remaining inside the working folder.
+
 ## Group discussion
 
 - Did it inspect file contents or rely on filenames?

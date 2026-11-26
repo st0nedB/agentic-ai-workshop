@@ -43,9 +43,9 @@ Organize a fictional research folder and observe which files the agent reads, wh
 
 ### [Exercise 2 — Analyze measurement data](02_data_analysis/README.md)
 
-Analyze an organizer-provided HDF5 measurement file. Define an Agent Contract, review a proposed plan, apply a visualization skill, and verify the resulting plots and code. Optional dataset acquisition instructions are included for the organizer.
+Analyze an organizer-provided HDF5 measurement file. Define an Agent Contract, review a proposed plan, apply a visualization skill, and verify the resulting plots and code. A synthetic fallback is available if the organizer-provided file is missing. Optional dataset acquisition instructions are included for the organizer.
 
-### Exercise 3 — Draw the actual workflow
+### [Exercise 3 — Draw the actual workflow](02_data_analysis/EXERCISE-3.md)
 
 Using the analysis files and code from Exercise 2, connect Excalidraw through MCP and have the agent draw an editable workflow diagram showing the actual processing steps. Verify the diagram against the code. See the Exercise 3 instructions in the [Block 2 slides (PDF)](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/02-directing-ai-agents.pdf) or [slide source](slides/decks/02-directing-ai-agents.md).
 

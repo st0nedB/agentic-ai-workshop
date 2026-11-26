@@ -6,12 +6,14 @@ on:
     paths:
       - '.devcontainer/**'
       - '01_dateichaos/**'
+      - '02_data_analysis/**'
       - '03_sandboxing/**'
       - '.github/workflows/test-devcontainer.yml'
   pull_request:
     paths:
       - '.devcontainer/**'
       - '01_dateichaos/**'
+      - '02_data_analysis/**'
       - '03_sandboxing/**'
       - '.github/workflows/test-devcontainer.yml'
   workflow_dispatch:

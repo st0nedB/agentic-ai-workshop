@@ -9,7 +9,7 @@ MODE="$([ "$#" -gt 0 ] && echo "$1" || echo help)"
 
 usage() {
   cat <<'TXT'
-Usage: bash 03_sandboxing/run.sh prepare|reset|direct|verify|isolated
+Usage: bash 03_sandboxing/run.sh prepare|save-direct|reset|direct|verify|isolated
 
 Use 'direct' to run OpenCode in the Codespace. Use 'isolated' to run
 OpenCode inside a restricted Docker container.
@@ -64,6 +64,7 @@ container_args() {
 case "$MODE" in
   help|--help|-h) usage ;;
   prepare) prepare ;;
+  save-direct) ensure_prepared; python3 "$ROOT/save_evidence.py" ;;
   reset) python3 "$ROOT/prepare.py" --reset ;;
   direct)
     ensure_prepared

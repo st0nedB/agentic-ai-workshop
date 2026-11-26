@@ -23,14 +23,14 @@ ROOT = Path(__file__).resolve().parent
 DEST = ROOT / "arbeitsordner"
 
 
-def prepare(reset: bool = False) -> None:
-    if DEST.exists():
+def prepare(reset: bool = False, dest: Path = DEST) -> None:
+    if dest.exists():
         if not reset:
-            print(f"Working folder already exists; left unchanged: {DEST}")
+            print(f"Working folder already exists; left unchanged: {dest}")
             return
-        if DEST.is_symlink():
+        if dest.is_symlink():
             raise RuntimeError("Working folder is a symlink; refusing to proceed.")
-        shutil.rmtree(DEST)
+        shutil.rmtree(dest)
         print("Existing working copy removed (--reset).")
 
     with tempfile.TemporaryDirectory(prefix=".ausgangsdaten-", dir=ROOT) as tmp:
@@ -73,8 +73,8 @@ def prepare(reset: bool = False) -> None:
                 with archive.open(item) as source, destination.open("wb") as target:
                     shutil.copyfileobj(source, target)
 
-        shutil.move(str(extracted), str(DEST))
-    print(f"Done: {EXPECTED_FILE_COUNT} Dateien in {DEST}")
+        shutil.move(str(extracted), str(dest))
+    print(f"Done: {EXPECTED_FILE_COUNT} Dateien in {dest}")
     print("Source and CC BY 4.0 attribution: 01_dateichaos/QUELLEN_UND_LIZENZ.md")
 
 
