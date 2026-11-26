@@ -1,6 +1,9 @@
 """Render the workshop handout. Requires ReportLab."""
 
+import argparse
 from pathlib import Path
+import re
+from xml.sax.saxutils import escape
 from reportlab.lib.colors import HexColor
 from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
@@ -10,47 +13,20 @@ from reportlab.pdfgen.canvas import Canvas
 from reportlab.platypus import Paragraph
 
 PROMPTS = [
-    (
-        'Find the biggest issues',
-        'Review <i>[repo/file]</i> for <i>[focus]</i>. Rank up to 10 issues by impact. For each, cite the file and line, give an example that triggers it, and explain the consequence.',
-    ),
-    (
-        'Decide one issue at a time',
-        'Take the findings one at a time. Recommend a fix, explain the trade-off, then wait for my decision. Record each as accepted, deferred, or rejected. Build a plan from the accepted items.',
-    ),
-    (
-        'Trace unfamiliar code',
-        'Trace one measurement from the HDF5 file to the final plot. Name the functions it passes through and show where its shape or units change. Keep this pass read-only.',
-    ),
-    (
-        'Clarify what matters',
-        'Read <i>[files]</i> first. If a missing requirement would change your implementation, ask me the most important question first. State any smaller assumptions and proceed.',
-    ),
-    (
-        'Give an example',
-        'Implement <font name="Courier">mean_reading</font>. For <font name="Courier">[2, 4]</font>, return <font name="Courier">3.0</font>. For an empty list, raise <font name="Courier">ValueError</font>. Follow the error style in <i>[existing function]</i>.',
-    ),
-    (
-        'Define success',
-        'I should be able to run <i>[command]</i> in the Codespace and get a PNG with labeled axes and units. Run it on <i>[sample file]</i> and inspect the plot.',
-    ),
-    (
-        'Compare options',
-        'Compare loading the whole dataset with reading it in chunks. The file is 8 GB and I have 4 GB of RAM. Which approach supports <i>[operation]</i>, and what does it cost?',
-    ),
-    (
-        'Reproduce a bug',
-        'With <i>[input]</i>, <i>[command]</i> gives <i>[actual result]</i>. I expected <i>[expected result]</i>. Capture the mismatch in a failing test, apply the smallest fix, and rerun the test.',
-    ),
-    (
-        'Bound the edit',
-        'Implement <i>[change]</i> in <i>[component]</i>. Preserve the public API and file format. Follow <i>[reference implementation]</i>. List unrelated cleanup separately.',
-    ),
-    (
-        'Verify the result',
-        "Check each acceptance criterion. For each, report the command you ran and what it showed. Identify anything you couldn't verify and explain why.",
-    ),
+    ("Find the biggest issues", "Review [repo/file] for [focus]. Rank up to 10 issues by impact. Cite the relevant code, explain the consequence, and give an example where applicable."),
+    ("Decide one issue at a time", "Take the findings one at a time. Recommend a fix, explain the trade-off, then wait for my decision. Record each as accepted, deferred, or rejected. Build a plan from the accepted items."),
+    ("Trace unfamiliar code", "Trace [input] from its source to [output]. Name the functions it passes through and explain each transformation. Keep this pass read-only."),
+    ("Clarify what matters", "Read [files] first. If a missing requirement would change your implementation, ask me the most important question first. State any smaller assumptions."),
+    ("Define an Agent Contract", "Your goal is [goal]. Use [inputs]. Respect [constraints]. The task is complete when [acceptance criteria]. Verify the result before reporting completion."),
+    ("Manage context", "Identify the files, documentation and prior decisions relevant to [task]. Explain what information is missing. Avoid loading unrelated material."),
+    ("Compare options", "Compare [option A] and [option B] for [task]. Consider [constraints]. Explain the trade-offs and recommend an approach."),
+    ("Reproduce a bug", "With [input], [command] gives [actual result]. I expected [expected result]. Capture the mismatch in a failing test, apply the smallest fix, and rerun the test."),
+    ("Bound the edit", "Implement [change] in [component]. Preserve [interfaces and formats]. Follow [reference implementation]. List unrelated cleanup separately."),
+    ("Verify the result", "Check each acceptance criterion. Report the command you ran and what it showed. Identify anything you couldn't verify and explain why."),
 ]
+
+INTRO = "Choose a prompt for the task at hand. Replace bracketed text with your details."
+PLAN_NOTE = "Use Plan Mode in OpenCode or Codex while discussing changes. It is intended to avoid implementation, but may still allow read-only commands. Switch to execution when ready."
 
 GUIDES = [
     ('GitHub', 'https://docs.github.com/en/copilot/concepts/prompting-and-context/prompt-engineering'),
@@ -64,8 +40,8 @@ INK = "#17324D"
 MUTED = "#607487"
 
 
-def render():
-    pdf = Canvas(str(Path(__file__).with_suffix(".pdf")), pagesize=A4, invariant=True)
+def render(output_dir):
+    pdf = Canvas(str(output_dir / "prompting-cheat-sheet.pdf"), pagesize=A4, invariant=True)
     pdf.setTitle("Prompting cheat sheet")
     pdf.setAuthor("Agentic AI Workshop")
     width, height = A4
@@ -85,22 +61,25 @@ def render():
     pdf.rect(0, height - 8, width, 8, stroke=0, fill=1)
     label(left, height - 40, "Agentic AI Workshop  ·  Block 2  ·  Directing AI Agents", 10, MUTED)
     label(left, height - 81, "Prompting cheat sheet", 32, NAVY, "Helvetica-Bold")
-    label(left, height - 105, "Choose a prompt for the task at hand. Replace bracketed text with your details.", 11, INK)
-    y = height - 132
+    label(left, height - 105, INTRO, 11, INK)
+    note = paragraph(PLAN_NOTE, "Helvetica", INK, 10.5, 13)
+    _, note_height = note.wrap(right - left, height)
+    note.drawOn(pdf, left, height - 116 - note_height)
+    y = height - 128 - note_height
     for number, (title, prompt) in enumerate(PROMPTS, 1):
         pdf.setStrokeColor(HexColor(TEAL if number == 1 else "#DCE6EA"))
         pdf.setLineWidth(1.5 if number == 1 else 0.6)
         pdf.line(left, y, right, y)
-        top = y - 10
+        top = y - 7
         label(left, top - 10, f"{number:02}", 10.5, TEAL, "Helvetica-Bold")
         heading = paragraph(title, "Helvetica-Bold", NAVY, 11, 14)
-        body = paragraph(prompt, "Helvetica", INK, 11.5, 15.5)
+        body = paragraph(re.sub(r"\[([^\]]+)\]", r"<i>[\1]</i>", escape(prompt)), "Helvetica", INK, 11, 13.5)
         body_x = left + 143
         _, h1 = heading.wrap(109, height)
         _, h2 = body.wrap(right - body_x, height)
         heading.drawOn(pdf, left + 23, top - h1)
         body.drawOn(pdf, body_x, top - h2)
-        y = top - max(h1, h2) - 11
+        y = top - max(h1, h2) - 8
 
     if y < 46:
         raise ValueError("Handout content overlaps the footer")
@@ -119,5 +98,20 @@ def render():
     pdf.save()
 
 
+def markdown(output_dir):
+    lines = ["# Prompting cheat sheet", "", INTRO, "", PLAN_NOTE, ""]
+    for number, (title, prompt) in enumerate(PROMPTS, 1):
+        lines.extend([f"## {number}. {title}", "", prompt, ""])
+    lines.extend(["## Prompting guides", ""] + [f"- [{name}]({url})" for name, url in GUIDES])
+    (output_dir / "prompting-cheat-sheet.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 if __name__ == "__main__":
-    render()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parent)
+    parser.add_argument("--markdown-only", action="store_true")
+    args = parser.parse_args()
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    markdown(args.output_dir)
+    if not args.markdown_only:
+        render(args.output_dir)

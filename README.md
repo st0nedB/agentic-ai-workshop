@@ -70,7 +70,7 @@ Compare OpenCode running directly in Codespaces with the same agent inside a res
 ### Handouts
 
 - Agent setup instructions: [PDF](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/Agent-Setup.pdf) · [Markdown](slides/handouts/Agent-Setup.md)
-- [Prompting cheat sheet (A4 PDF)](slides/handouts/prompting-cheat-sheet.pdf)
+- Prompting cheat sheet: [A4 PDF](https://github.com/st0nedB/agentic-ai-workshop/releases/latest/download/prompting-cheat-sheet.pdf) · [Markdown](slides/handouts/prompting-cheat-sheet.md)
 
 The PDFs are published with [tagged releases](https://github.com/st0nedB/agentic-ai-workshop/releases/latest). For build instructions, see [slides/README.md](slides/README.md).
 
