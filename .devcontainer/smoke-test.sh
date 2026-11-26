@@ -32,13 +32,29 @@ test -d 03_sandboxing/runtime/working/.git
 test -f 03_sandboxing/runtime/private_repo/id_ed25519
 bash 03_sandboxing/run.sh verify
 python3 03_sandboxing/test_lab.py
-tmp="$(mktemp -d)"
-trap 'rm -rf "$tmp"' EXIT
-python3 02_data_analysis/fallback/generate.py --output "$tmp/synthetic.h5"
-python3 02_data_analysis/fallback/reference_analysis.py --input "$tmp/synthetic.h5" --output "$tmp/results"
-test -s "$tmp/results/time_series.png"
-test -s "$tmp/results/spectrum.png"
-test -s "$tmp/results/RESULTS.md"
+# Verify the real measurement dataset, including Git LFS hydration.
+python3 - <<'PY'
+from pathlib import Path
+import h5py
+
+root = Path("02_data_analysis/dataset")
+for name in ("channel.h5", "target.h5"):
+    path = root / name
+    assert path.is_file(), f"Missing dataset file: {path}"
+    assert h5py.is_hdf5(path), f"Invalid HDF5 file (check Git LFS checkout): {path}"
+    with h5py.File(path, "r") as data:
+        datasets = []
+        data.visititems(lambda name, obj: datasets.append(name)
+                        if isinstance(obj, h5py.Dataset) and obj.size else None)
+        assert datasets, f"No nonempty datasets in {path}"
+    print(f"Verified {path}")
+
+video = root / ".example" / "ddmap.mp4"
+assert video.is_file(), f"Missing example video: {video}"
+with video.open("rb") as stream:
+    header = stream.read(32)
+assert header[4:8] == b"ftyp", f"Invalid MP4 file (check Git LFS checkout): {video}"
+PY
 python3 - <<'PY'
 import sys
 from pathlib import Path
