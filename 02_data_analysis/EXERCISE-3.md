@@ -6,6 +6,8 @@
 
 Use the analysis code and outputs from [Exercise 2](README.md). Find an MCP server that lets your agent draw in Excalidraw. Inspect its documentation and decide how to connect it to your chosen agent. No particular server or setup method is prescribed.
 
+Inspect the server's source, installation instructions and requested permissions before running it. A local MCP server can execute code under your user account. Keep any forwarded Codespaces ports private unless sharing is necessary.
+
 If Exercise 2 is incomplete, use the [synthetic reference analysis](fallback/README.md) instead. Do not present it as your own analysis of real measurements.
 
 ## Assignment

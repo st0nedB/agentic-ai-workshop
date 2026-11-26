@@ -115,13 +115,13 @@ The sandbox launches an unprivileged OpenCode process with:
 
 A read-only `.git` mount prevents editing Git metadata in the **original** repository. It does not prevent the agent from editing the working files or creating a different repository elsewhere in its writable area.
 
-The bridge network still permits network activity. Network egress restrictions are outside this particular exercise.
+Network access is intentionally retained so the agent can access external resources and obtain additional software where its filesystem permissions permit. Network egress restrictions are outside this exercise.
 
 ## Important limitations
 
 This is a **teaching exercise, not a production-grade untrusted-code sandbox**. Docker-in-Docker needs elevated privileges in the parent Codespace. The parent Docker user controls the child and is therefore trusted. The child has no Docker socket.
 
-The inference gateway is a minimal demonstration relay. It restricts its upstream endpoint and model and keeps the upstream key outside the child, but **does not authenticate or rate-limit local inference requests**. An agent that can reach the relay can consume API credits. Use a capped API key and disposable workshop resources.
+The inference gateway is a minimal demonstration relay. It restricts its upstream endpoint and model and keeps the upstream key outside the child, but **does not authenticate or rate-limit local inference requests**. An agent that can reach the relay can consume API credits. Use an API key with a spending limit and disposable workshop resources. The spending limit is enforced by the provider, not by the gateway.
 
 Both directories contain mock data only. **Never put real SSH keys, credentials, or confidential documents into this exercise.**
 

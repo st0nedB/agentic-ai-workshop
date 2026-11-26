@@ -22,6 +22,8 @@ Use `02_data_analysis/data/synthetic.h5` and its [documented schema](fallback/RE
 4. **Execute (10 min):** Inspect the [Scientific Visualization Skill](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md) by K-Dense. Find out how to make it available to your agent and use it to execute the approved plan. Save the analysis code and two interpretable plots.
 5. **Verify (5 min):** Rerun the code, inspect the plots, check units against the evidence, and record assumptions and limitations.
 
+Before installing a third-party skill, inspect its instructions and any accompanying scripts. Only use code you are prepared to trust.
+
 Start your agent in `02_data_analysis/`. Save all deliverables under `02_data_analysis/results/`:
 
 - Agent Contract and reproducible analysis code.

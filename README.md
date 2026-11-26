@@ -25,6 +25,10 @@ You need a GitHub account and an API key or another form of model access support
 
 **Idle timeout:** Codespaces automatically stop after 30 minutes of inactivity by default, which can interrupt agent work. You can adjust the idle timeout in your [GitHub Codespaces settings](https://github.com/settings/codespaces).
 
+**Git:** You do not need to push anything to GitHub during this workshop. Working in your Codespace does not grant write access to the upstream workshop repository. If you want to publish your work, use your own repository or fork.
+
+**Forwarded ports:** Keep ports private unless you specifically need to share a service with others.
+
 ## AI agents
 
 The workshop uses two preinstalled CLI agents in the VS Code terminal: OpenCode (`opencode`) and Codex (`codex`).

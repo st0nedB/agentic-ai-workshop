@@ -127,7 +127,7 @@ Example excerpt from `SKILL.md`:
 - Label axes and save the code used to generate plots.
 ```
 
-A compatible harness discovers and loads the instructions when needed. Skills can also contain scripts and reference material.
+A compatible harness discovers and loads the instructions when needed. Skills can also contain scripts and reference material. Inspect them before use.
 
 ---
 
@@ -212,6 +212,8 @@ A purpose-built CLI or API can expose application capabilities. **Model Context 
 | MCP servers | Discoverable, structured tool interfaces | Excalidraw drawing operations |
 
 MCP tools are still tools; a skill supplies reusable guidance. An agent can combine all three.
+
+**Trust matters:** Inspect third-party skills, scripts and MCP servers before installing them. Keep forwarded ports private.
 
 ---
 
