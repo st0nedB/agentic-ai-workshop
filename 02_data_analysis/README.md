@@ -19,7 +19,7 @@ Use `02_data_analysis/data/synthetic.h5` and its [documented schema](fallback/RE
 1. **Inspect (5 min):** Identify the HDF5 groups, datasets, shapes, attributes and available documentation. Do not assume the dimensions or units.
 2. **Define an Agent Contract (5 min):** Specify the input, goal, boundaries and definition of done. Record it in `results/AGENT-CONTRACT.md`. Preserve the input.
 3. **Plan (5 min):** Ask the agent to propose a processing and visualization workflow without editing files. Review assumptions, units and plot choices before approving.
-4. **Execute (10 min):** Apply the Data Visualization Skill provided during the workshop, run the approved plan, and save the analysis code and two interpretable plots.
+4. **Execute (10 min):** Inspect the [Scientific Visualization Skill](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md) by K-Dense. Find out how to make it available to your agent and use it to execute the approved plan. Save the analysis code and two interpretable plots.
 5. **Verify (5 min):** Rerun the code, inspect the plots, check units against the evidence, and record assumptions and limitations.
 
 Start your agent in `02_data_analysis/`. Save all deliverables under `02_data_analysis/results/`:

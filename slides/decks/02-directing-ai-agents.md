@@ -164,7 +164,7 @@ All three supply context; they do not create new model capabilities.
 
 1. Inspect the dataset and define an **Agent Contract**.
 2. Use **Plan Mode** to propose a processing and visualization workflow.
-3. Apply the **Data Visualization Skill** during execution.
+3. Inspect the [Scientific Visualization Skill](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md). Find out how to use it with your agent and apply it during execution.
 4. Save the analysis code, labeled plots, and a short interpretation.
 
 **Verify:** Do the plots match the data and units? Are the processing steps reproducible?
@@ -217,7 +217,7 @@ MCP tools are still tools; a skill supplies reusable guidance. An agent can comb
 
 **14:20–14:55 · Group work**
 
-1. Connect the workshop's **Excalidraw MCP** integration.
+1. Find an **Excalidraw MCP server** and connect it to your agent.
 2. Ask the agent to inspect the analysis it performed in Exercise 2.
 3. Draw the workflow from **file loading** through **processing** to **visualization**.
 4. Compare the diagram with the code and correct missing or invented steps.
