@@ -4,6 +4,7 @@
 !.env.example
 *.pem
 *.key
+workshop-keys.csv
 .venv/
 
 # Python and temporary files
