@@ -10,11 +10,14 @@ import os
 import sys
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from uuid import UUID
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--count", type=int, required=True)
+    parser.add_argument("--workspace-id", type=UUID, metavar="UUID",
+                        help="Create all keys in this OpenRouter workspace")
     parser.add_argument("--limit", type=float, default=10.0, help="USD per key (default: 10)")
     parser.add_argument("--reset", choices=("daily", "weekly", "monthly"),
                         help="Default: a single lifetime budget per key")
@@ -31,6 +34,9 @@ def main():
     expiry = datetime.now(timezone.utc) + timedelta(days=30)
     settings = {"limit": args.limit, "limit_reset": args.reset,
                 "expires_at": args.expires_at or expiry.strftime("%Y-%m-%dT%H:%M:%SZ")}
+
+    if args.workspace_id is not None:
+        settings["workspace_id"] = str(args.workspace_id)
 
     fd = os.open(args.output, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
     with os.fdopen(fd, "w", encoding="utf-8", newline="") as output:
